@@ -1,0 +1,151 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passtrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
+    "modules-left": [
+        "hyprland/workspaces",
+        "custom/separator_left_1",
+        "hyprland/window",
+        "custom/separator_left_2"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "tray",
+        "custom/separator_right_1",
+        "custom/docker",
+        "custom/separator_right_2",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "custom/separator_right_3",
+        "battery",
+        "custom/separator_right_4",
+        "custom/vpn",
+        "custom/network",
+        "custom/separator_right_5",
+        "clock"
+    ],
+    "hyprland/workspaces": {
+        "on-click": "activate"
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "rewrite": {
+            "Mozilla Firefox": "",
+            "(.*) — Mozilla Firefox": " $1",
+            "(vim|nvim).*": " $0",
+            "docker.*": "󰡨 $0 $1",
+            "(lf|lfcd)": "󰙅 $0",
+            "(top|htop|bashtop)": "󱎴 $0",
+            "(bash|zsh)": " $0"
+        }
+    },
+    "tray": {
+        "icon-size": 13,
+        "tooltip": false,
+        "spacing": 10
+    },
+    "custom/docker": {
+        "tooltip": true,
+        "format": " {}",
+        "interval" : 10,
+        "exec": "bash ~/.config/waybar/scripts/docker_status.sh",
+        "on-click": "~/.config/waybar/scripts/docker_menu.sh",
+        "return-type": "json"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": "󰖁 Muted",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "󰖀", "󰕾"]
+        }
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "tooltip": false,
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
+    },
+    "battery": {
+        "bat": "BAT0",
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": {
+            "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+            "default": ["󱃍", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂁", "󰁹"]
+        },
+        "max-length": 25
+    },
+    "custom/vpn": {
+        "tooltip": true,
+        "interval" : 10,
+        "exec": "bash ~/.config/waybar/scripts/vpn_status.sh",
+        "on-click": "~/.config/waybar/scripts/vpn_menu.sh",
+        "return-type": "json"
+    },
+    "custom/network": {
+        "tooltip": true,
+        "interval" : 10,
+        "exec": "bash ~/.config/waybar/scripts/network_status.sh",
+        "on-click": "~/.config/waybar/scripts/network_menu.sh",
+        "return-type": "json"
+    },
+    "clock": {
+        "format": "{: %R   %Y-%m-%d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "custom/separator_left_1": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/separator_left_2": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/separator_right_1": {
+        "format": "",
+       "tooltip": false
+    },
+    "custom/separator_right_2": {
+        "format": "",
+        "tooltip": false
+    },
+     "custom/separator_right_3": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/separator_right_4": {
+       "format": "",
+        "tooltip": false
+    },
+    "custom/separator_right_5": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/separator_right_6": {
+         "format": "",
+         "tooltip": false
+    }
+}

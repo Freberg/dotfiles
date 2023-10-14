@@ -1,0 +1,19 @@
+alias ll="ls -la"
+
+# navigation
+alias dl="cd $HOME/Downloads"
+alias wp="cd $HOME/workspace"
+
+# git
+alias gs="git status"
+alias gl="git log --stat"
+alias ga="git add"
+alias gc="git commit -m"
+
+# nix
+alias ns="nix-shell"
+alias ns-bin="nix-shell ~/.config/nix-shell/bin-runner.nix"
+alias ns-mvn="nix-shell ~/.config/nix-shell/mvn-builder.nix"
+
+# core utils
+alias tf="tail -f"

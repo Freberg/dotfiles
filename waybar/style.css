@@ -1,0 +1,171 @@
+@import url("../theme/waybar/current");
+
+@keyframes blink-critical {
+  to {
+    background-color: @critical;
+  }
+}
+
+* {
+  border: solid;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+  font-family: JetBrainsMono Nerd Font;
+  font-size: small;
+}
+
+#waybar {
+  background: @background;
+  color: @foreground;
+  border: solid;
+  border-color: @selection;
+  border-width: 0px 0px 1px 0px;
+}
+
+widget > * {
+  border: solid;
+  border-color: @selection;
+  border-width: 0px 0px 1px 0px;
+}
+
+#mode,
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
+#battery.critical.discharging {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-name: blink-critical;
+	animation-duration: 1s;
+}
+
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning,
+#battery.warning.discharging {
+	color: @warning;
+}
+
+#workspaces button {
+	padding-left: 2pt;
+	padding-right: 2pt;
+	background: @background_color_1;
+	color: @foreground_color_1;
+}
+
+#workspaces button.visible {
+	color: @white;
+	background: @inactive;
+}
+
+#workspaces button.focused {
+	color: @selection;
+	background: @focused;
+}
+
+#workspaces button.urgent {
+	color: @selection;
+	background: @warning;
+}
+
+#workspaces button:hover {
+	background: @selection;
+	color: @foreground;
+}
+
+#workspaces button.active {
+  background: @background;
+}
+
+#custom-separator_left_1 {
+	font-size: 11pt;
+	color: @background_color_1;
+	background: @background_color_2;
+}
+
+#window {
+	background: @background_color_2;
+	color: @foreground_color_2;
+	padding: 0px 15px;
+}
+
+#custom-separator_left_2 {
+	font-size: 11pt;
+	color: @background_color_2;
+	background: transparent;
+}
+
+#custom-separator_right_1 {
+	font-size: 11pt;
+	color: @background_color_3;
+	background: transparent;
+}
+
+#custom-docker {
+	background: @background_color_3;
+	color: @foreground_color_3;
+	padding: 0px 5px;
+}
+
+#custom-separator_right_2 {
+	font-size: 11pt;
+	color: @background_color_4;
+	background: @background_color_3;
+}
+
+#pulseaudio, 
+#pulseaudio.microphone {
+	background: @background_color_4;
+	color: @foreground_color_4;
+	padding: 0px 5px;
+}
+
+#custom-separator_right_3 {
+	font-size: 11pt;
+	color: @background_color_5;
+	background: @background_color_4;
+}
+
+#battery {
+	background: @background_color_5;
+	color: @foreground_color_5;
+	padding: 0px 5px;
+}
+
+#custom-separator_right_4 {
+	font-size: 11pt;
+	color: @background_color_6;
+	background: @background_color_5;
+}
+
+#custom-vpn {
+	background: @background_color_6;
+	color: @foreground_color_6;
+	padding: 0px 5px;
+}
+
+#custom-network {
+	background: @background_color_6;
+	color: @foreground_color_6;
+	padding: 0px 5px;
+}
+
+#custom-separator_right_5 {
+	font-size: 11pt;
+	color: @background_color_7;
+	background: @background_color_6;
+}
+
+#clock {
+	background: @background_color_7;
+	color: @foreground_color_7;
+	padding: 0px 5px;
+}
+

@@ -1,0 +1,13 @@
+*/
+!/home-manager
+!/hypr
+!/kitty
+!/nix-shell
+!/scripts
+!/sheldon
+!/theme
+!/waybar
+!/wofi
+!/zsh
+/*.*
+!*.nix

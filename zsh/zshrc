@@ -1,0 +1,14 @@
+# plugins
+eval "$(sheldon source)"
+
+source ~/.config/zsh/alias
+
+# colors
+test -r ~/.config/theme/dircolors/current && eval "$(dircolors ~/.config/theme/dircolors/current)" 
+
+# kitty ssh fix
+[ $TERM = "xterm-kitty" ] && alias ssh="kitten ssh"
+
+# prompt
+[ $TERM != "linux" ] && export STARSHIP_CONFIG=~/.config/theme/starship/current && eval "$(starship init zsh)"
+
