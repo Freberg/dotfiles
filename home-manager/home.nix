@@ -2,8 +2,10 @@
 {
     imports = [
         ./ui.nix
+        ./development.nix
         ./java_development.nix
         ./python_development.nix
+        ./kubernetes.nix
         ./antivirus.nix
         ./email.nix
     ];

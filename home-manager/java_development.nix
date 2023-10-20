@@ -13,6 +13,7 @@
 
     home.packages = with pkgs; [
         maven
+        gradle
         jetbrains.idea-community
         java-language-server
         jdt-language-server
