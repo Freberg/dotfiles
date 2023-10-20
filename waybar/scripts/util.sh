@@ -10,3 +10,7 @@ function action_menu() {
     #selection="$(echo -e "$actions" | wofi -bdi -p "$title" -k /dev/null)"
     echo "$selection"
 }
+
+function update_waybar() {
+    pkill -SIGRTMIN+8 waybar
+}

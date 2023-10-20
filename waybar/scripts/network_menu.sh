@@ -30,3 +30,4 @@ case $selected_action in
         action_menu "network info" "$(nmcli con show --active)"
 esac
 
+update_waybar

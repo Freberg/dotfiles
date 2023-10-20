@@ -37,3 +37,4 @@ case $selected_action in
         ;;
 esac
 
+update_waybar
