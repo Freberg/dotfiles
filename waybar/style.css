@@ -108,6 +108,12 @@ widget > * {
 	background: transparent;
 }
 
+#custom-devpod {
+	background: @background_color_3;
+	color: @foreground_color_3;
+	padding: 0px 5px;
+}
+
 #custom-docker {
 	background: @background_color_3;
 	color: @foreground_color_3;

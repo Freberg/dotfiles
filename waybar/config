@@ -16,6 +16,7 @@
     "modules-right": [
         "tray",
         "custom/separator_right_1",
+        "custom/devpod",
         "custom/docker",
         "custom/separator_right_2",
         "pulseaudio",
@@ -34,19 +35,30 @@
     "hyprland/window": {
         "format": "{}",
         "rewrite": {
-            "Mozilla Firefox": "",
-            "(.*) — Mozilla Firefox": " $1",
+            "Mozilla Firefox": " firefox",
+            "(.*) — Mozilla Firefox": " firefox - $1",
             "(vim|nvim).*": " $0",
             "docker.*": "󰡨 $0 $1",
             "(lf|lfcd)": "󰙅 $0",
             "(top|htop|bashtop)": "󱎴 $0",
-            "(bash|zsh)": " $0"
+            "(bash|zsh)": " $0",
+            "Alacritty": " alacritty",
+            "intellij - (.*)": " $1"
         }
     },
     "tray": {
         "icon-size": 13,
         "tooltip": false,
         "spacing": 10
+    },
+    "custom/devpod": {
+        "tooltip": true,
+        "format": " {}",
+        "exec": "bash ~/.config/waybar/scripts/devpod_status.sh",
+        "on-click": "~/.config/waybar/scripts/devpod_menu.sh",
+        "return-type": "json",
+        "interval": 10,
+        "signal": 8
     },
     "custom/docker": {
         "tooltip": true,
@@ -117,7 +129,7 @@
         "signal": 8
     },
     "clock": {
-        "format": "{: %R   %Y-%m-%d}",
+        "format": " {0:%R}  {0:%Y-%m-%d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "custom/separator_left_1": {

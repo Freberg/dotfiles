@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./gnome.nix
       <home-manager/nixos>
     ];
 
@@ -38,23 +39,34 @@
 
   # configure keymap in X11
   services.xserver = {
-    layout = "se";
-    xkbVariant = "";
+    enable = true;
+    xkb = {
+      layout = "se";
+      variant = "";
+    };
   };
+
+  hardware.pulseaudio.enable = false;  
 
   # console keymap
   console.keyMap = "sv-latin1";
   
   # xdg portal
   services.dbus.enable = true;
-  xdg.portal = { 
-    enable = true;
-    wlr.enable = true;
-    extraPortals = with pkgs; [ 
-      xdg-desktop-portal-hyprland
-    ];
+  xdg = {
+    autostart.enable = true; 
+    portal = { 
+        enable = true;
+        wlr.enable = true;
+        extraPortals = with pkgs; [ 
+            #xdg-desktop-portal
+            xdg-desktop-portal-hyprland
+        ];
+     };
   };
-
+  
+  services.displayManager.defaultSession = "hyprland";
+  
   # audio and video
   security.rtkit.enable = true;
   services.pipewire = {
@@ -94,33 +106,20 @@
     killall
     git
     gcc
+    sshfs
+    nfs-utils
+    cifs-utils
+    xdg-utils
+    xdg-desktop-portal-hyprland
   ];
-  
-  # lock screen
-  security.pam.services.gtklock.text = lib.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
-  
-  # greeter 
-  # services.greetd = {
-  #  enable = true;
-  #  settings = {
-  #    default_session.command = ''
-  #      ${pkgs.greetd.tuigreet}/bin/tuigreet \
-  #        --time \
-  #        --asterisks \
-  #        --user-menu \
-  #        --cmd "Hyprland"
-  #      '';
-  #  };
-  #};
 
-  environment.etc."greetd/environments".text = ''
-    Hyprland
-    bash
-  '';
-  
   # home directory encryption
   security.pam.enableEcryptfs = true;
   boot.kernelModules = [ "ecryptfs" ];
+
+  # lock screen
+  security.pam.services.gtklock.text = lib.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
+  security.pam.services.hyprlock.text = lib.readFile "${pkgs.hyprlock}/etc/pam.d/hyprlock";
   
   # antivirus
   services.clamav = {
@@ -131,9 +130,8 @@
   services.pcscd.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    pinentryFlavor = "curses";
     enableSSHSupport = true;
   };
 
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }

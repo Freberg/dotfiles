@@ -9,6 +9,7 @@ theme=$1
 
 change_theme "dircolors" 
 change_theme "dunst"
+change_theme "alacritty"
 change_theme "kitty"
 change_theme "gtklock"
 change_theme "starship"

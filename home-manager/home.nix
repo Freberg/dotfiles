@@ -2,6 +2,7 @@
 {
     imports = [
         ./ui.nix
+        ./util.nix
         ./development.nix
         ./java_development.nix
         ./python_development.nix
@@ -18,13 +19,11 @@
         (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
         # terminal
         kitty
+        alacritty
         # shell
         sheldon
         # prompt
         starship
-        # cli tools
-        jq
-        unzip
         # notifications
         libnotify
         dunst
@@ -36,6 +35,7 @@
         pamixer
         # browser
         firefox
+        chromium
         # editors
         vim
         # LSPs
@@ -57,7 +57,7 @@
         ];
     };
 
-    home.stateVersion = "23.05";
+    home.stateVersion = "24.05";
  
     programs.home-manager.enable = true;
 }

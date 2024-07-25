@@ -2,7 +2,7 @@
 
 source "$(dirname "$0")/util.sh"
 
-entries="$(docker ps -a --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}')"
+entries="$(docker ps -a --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}' | tail -n +2)"
 
 sleep 0.1
 

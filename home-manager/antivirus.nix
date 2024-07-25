@@ -1,11 +1,15 @@
 { config, pkgs, lib, ... }:
 {
+    home.packages = with pkgs; [
+        cpulimit
+    ];
+
     systemd.user.timers = {
         antivirus-scan = {
             Unit.Description = "timer for antivirus-scan";
             Install.WantedBy = [ "timers.target" ];
             Timer = {
-                OnBootSec = "15min";
+                #OnBootSec = "15min";
                 OnUnitActiveSec = "1w";
                 Persistent = true;
                 Unit = "antivirus-scan.service";
@@ -19,7 +23,7 @@
             Service = {
                 Type = "oneshot";
                 ExecStart = toString (pkgs.writeShellScript "anti-virus-script" ''
-                    PATH=$PATH:${lib.makeBinPath [ pkgs.coreutils pkgs.libnotify pkgs.clamav ]}
+                    PATH=$PATH:${lib.makeBinPath [ pkgs.coreutils pkgs.libnotify pkgs.cpulimit pkgs.clamav ]}
                     ${pkgs.bash}/bin/bash "/home/freberg/.config/scripts/antivirus-scan.sh";
                 '');
             };
