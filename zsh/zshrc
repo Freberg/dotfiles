@@ -2,6 +2,7 @@
 eval "$(sheldon source)"
 
 source ~/.config/zsh/alias
+[ -f ~/.env.sh ] && source ~/.env.sh
 
 # colors
 test -r ~/.config/theme/dircolors/current && eval "$(dircolors ~/.config/theme/dircolors/current)" 
@@ -11,4 +12,3 @@ test -r ~/.config/theme/dircolors/current && eval "$(dircolors ~/.config/theme/d
 
 # prompt
 [ $TERM != "linux" ] && export STARSHIP_CONFIG=~/.config/theme/starship/current && eval "$(starship init zsh)"
-

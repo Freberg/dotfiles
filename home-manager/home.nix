@@ -3,6 +3,7 @@
     imports = [
         ./ui.nix
         ./util.nix
+        ./zed.nix
         ./development.nix
         ./java_development.nix
         ./python_development.nix
@@ -13,13 +14,14 @@
     home.username = "freberg";
     home.homeDirectory = "/home/freberg";
     fonts.fontconfig.enable = true;
-  
+
     home.packages = with pkgs; [
         # fonts
         (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
         # terminal
         kitty
         alacritty
+        gnome-terminal
         # shell
         sheldon
         # prompt
@@ -44,7 +46,7 @@
         # tool chains
         rustup
     ];
-  
+
     programs.zsh = {
         enable = true;
         initExtra = "source ~/.config/zsh/zshrc";
@@ -57,7 +59,7 @@
         ];
     };
 
-    home.stateVersion = "24.05";
- 
+    home.stateVersion = "24.11";
+
     programs.home-manager.enable = true;
 }

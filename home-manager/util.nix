@@ -4,9 +4,11 @@
         visidata
         jq
         rclone
+        zip
         unzip
         keepass
         filezilla
         libreoffice
+        gimp
     ];
 }

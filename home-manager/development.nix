@@ -21,24 +21,24 @@ in
     
 #    nixpkgs.config.allowUnfree = true;
 
-    nixpkgs.overlays = [
-        (final: prev: {
-            pkgsUnstable.jetbrains.gateway.overrideAttrs = (oldAttrs: {
-                buildInputs = oldAttrs.buildInputs or [] ++ [ pkgs.makeWrapper ];
-                installPhase = oldAttrs.installPhase or [] ++ ''
-                    mkdir -p $out/share
-                    cp -r . $out/share
-                    rm -r $out/share/jbr
-                '';
-                postInstall = oldAttrs.postInstall or "" + ''
-                    wrapProgram \ 
-                    $out/bin/gateway.sh \
-                    $out/bin/jetbrains-gateway \
-                    --prefix LD_LIBRARY_PATH : $out/lib \
-                    --set GATEWAY_JDK "${pkgs.temurin-bin-17}" \
-                    --set JETBRAINS_CLIENT_JDK "${pkgs.temurin-bin-17}" 
-                '';
-            });  
-        })
-    ];
+    #nixpkgs.overlays = [
+    #    (final: prev: {
+    #        pkgsUnstable.jetbrains.gateway.overrideAttrs = (oldAttrs: {
+    #            buildInputs = oldAttrs.buildInputs or [] ++ [ pkgs.makeWrapper ];
+    #            installPhase = oldAttrs.installPhase or [] ++ ''
+    #                mkdir -p $out/share
+    #                cp -r . $out/share
+    #                rm -r $out/share/jbr
+    #            '';
+    #            postInstall = oldAttrs.postInstall or "" + ''
+    #                wrapProgram \ 
+    #                $out/bin/gateway.sh \
+    #                $out/bin/jetbrains-gateway \
+    #                --prefix LD_LIBRARY_PATH : $out/lib \
+    #                --set GATEWAY_JDK "${pkgs.temurin-bin-17}" \
+    #                --set JETBRAINS_CLIENT_JDK "${pkgs.temurin-bin-17}" 
+    #            '';
+    #        });  
+    #    })
+    #];
 }

@@ -1,4 +1,5 @@
 */
+/*
 !/home-manager
 !/hypr
 !/kitty
@@ -9,5 +10,4 @@
 !/waybar
 !/wofi
 !/zsh
-/*.*
 !*.nix
