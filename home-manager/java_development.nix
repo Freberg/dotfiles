@@ -1,6 +1,6 @@
-{ lib, config, pkgs, ... }:
+{ pkgs, ... }:
 let
-    pkgsUnstable = import <nixpkgs-unstable> { 
+    pkgsUnstable = import <nixpkgs-unstable> {
         config = {
             allowUnfree = true;
         };
@@ -11,7 +11,7 @@ in
     home.file."jdks/temurin17".source = pkgs.temurin-bin-17;
     home.file."jdks/temurin21".source = pkgsUnstable.temurin-bin-21;
     home.file."jdks/graalvm-ce".source = pkgs.graalvm-ce;
-    home.file."jdks/jetbrains".source = pkgs.jetbrains.jdk;    
+    home.file."jdks/jetbrains".source = pkgs.jetbrains.jdk;
 
     home.sessionVariables = {
         JAVA_11_HOME = "$HOME/jdks/temurin11";

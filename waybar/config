@@ -37,6 +37,7 @@
         "rewrite": {
             "Mozilla Firefox": " firefox",
             "(.*) — Mozilla Firefox": " firefox - $1",
+            "(.*) - Chromium": " chromium - $1",
             "(vim|nvim).*": " $0",
             "docker.*": "󰡨 $0 $1",
             "(lf|lfcd)": "󰙅 $0",

@@ -1,9 +1,11 @@
 { pkgs, ... }:
 {
     home.packages = with pkgs; [
+        nodejs_23
         nixd
         jdt-language-server
         kotlin-language-server
+        pyright
     ];
     programs.zed-editor = {
         enable = true;
@@ -38,6 +40,12 @@
                                     maven = {
                                         enabled = true;
                                     };
+                                    lombokSupport = {
+                                        enabled = true;
+                                    };
+                                    format = {
+                                        enabled = true;
+                                    };
                                 };
                             };
                         };
@@ -53,6 +61,11 @@
                                 target = "17";
                             };
                         };
+                    };
+                };
+                pyright = {
+                    binary = {
+                        path_lookup = true;
                     };
                 };
             };

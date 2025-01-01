@@ -1,13 +1,13 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
-    home.pointerCursor = 
-        let 
+    home.pointerCursor =
+        let
         getFrom = url: hash: name: {
             gtk.enable = true;
             x11.enable = true;
             name = name;
             size = 16;
-            package = 
+            package =
                 pkgs.runCommand "moveUp" {} ''
                 mkdir -p $out/share/icons
                 ln -s ${pkgs.fetchzip {

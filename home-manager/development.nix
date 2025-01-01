@@ -1,6 +1,6 @@
-{ lib, config, pkgs, ... }:
+{ pkgs, ... }:
 let
-    pkgsUnstable = import <nixpkgs-unstable> { 
+    pkgsUnstable = import <nixpkgs-unstable> {
         config = {
             allowUnfree = true;
         };
@@ -18,7 +18,7 @@ in
         pkgsUnstable.jetbrains.gateway
         pkgsNur.repos.dagger.dagger
     ];
-    
+
 #    nixpkgs.config.allowUnfree = true;
 
     #nixpkgs.overlays = [
@@ -31,14 +31,14 @@ in
     #                rm -r $out/share/jbr
     #            '';
     #            postInstall = oldAttrs.postInstall or "" + ''
-    #                wrapProgram \ 
+    #                wrapProgram \
     #                $out/bin/gateway.sh \
     #                $out/bin/jetbrains-gateway \
     #                --prefix LD_LIBRARY_PATH : $out/lib \
     #                --set GATEWAY_JDK "${pkgs.temurin-bin-17}" \
-    #                --set JETBRAINS_CLIENT_JDK "${pkgs.temurin-bin-17}" 
+    #                --set JETBRAINS_CLIENT_JDK "${pkgs.temurin-bin-17}"
     #            '';
-    #        });  
+    #        });
     #    })
     #];
 }

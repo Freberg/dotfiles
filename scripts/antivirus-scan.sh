@@ -3,7 +3,7 @@
 notify-send "antivirus-scan" "starting scan..."
 
 log_file=$HOME/.clamscan.log
-cpulimit -l 20 -- clamscan -iv --stdout --max-filesize=100M --max-scansize=100M -r "$HOME" > $log_file
+cpulimit -l 20 -- clamscan -iv --max-filesize=100M --max-scansize=100M -r "$HOME" -l $log_file
 result_code=$?
 title=
 
