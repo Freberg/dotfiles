@@ -4,6 +4,7 @@
     imports =
         [
         ./hardware-configuration.nix
+        ./hyprland.nix
         ./gnome.nix
         <home-manager/nixos>
         ];
@@ -41,8 +42,8 @@
     services.xserver = {
         enable = true;
         xkb = {
-        layout = "se";
-        variant = "";
+            layout = "se";
+            variant = "";
         };
     };
 
@@ -58,17 +59,12 @@
     xdg = {
         autostart.enable = true;
         portal = {
-            #xdgOpenUsePortal = true;
             enable = true;
             wlr.enable = true;
-            extraPortals = with pkgs; [
-                #xdg-desktop-portal
-                xdg-desktop-portal-hyprland
-            ];
         };
     };
 
-    services.displayManager.defaultSession = "hyprland";
+    services.displayManager.defaultSession = "hyprland-uwsm";
 
     # audio and video
     security.rtkit.enable = true;
@@ -81,7 +77,6 @@
 
     # compositor and shell
     programs = {
-        hyprland.enable = true;
         light.enable = true;
         zsh.enable = true;
     };
@@ -113,7 +108,6 @@
         nfs-utils
         cifs-utils
         xdg-utils
-        xdg-desktop-portal-hyprland
     ];
 
     # home directory encryption
