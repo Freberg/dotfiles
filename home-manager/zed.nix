@@ -9,7 +9,7 @@
     ];
     programs.zed-editor = {
         enable = true;
-        extensions = [ "nord" "dockerfile" "nix" "java" "kotlin" ];
+        extensions = [ "nord" "dockerfile" "docker-compose" "nix" "java" "kotlin" ];
         userSettings = {
             vim_mode = true;
             theme = {

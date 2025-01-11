@@ -22,3 +22,6 @@ github = "zsh-users/zsh-autosuggestions"
 
 [plugins.syntax-highlightning]
 github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.fzf-history-search]
+github = "joshskidmore/zsh-fzf-history-search"

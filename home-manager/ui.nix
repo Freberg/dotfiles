@@ -10,6 +10,7 @@ in
     home.packages = with pkgs; [
         pkgsUnstable.waybar
         wofi
+        pkgsUnstable.walker
         hyprpaper
         hyprlock
         gtklock

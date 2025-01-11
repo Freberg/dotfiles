@@ -17,6 +17,7 @@ in
         pkgsUnstable.devpod
         pkgsUnstable.jetbrains.gateway
         pkgsNur.repos.dagger.dagger
+        super-productivity
     ];
 
 #    nixpkgs.config.allowUnfree = true;

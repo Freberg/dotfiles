@@ -5,10 +5,15 @@ source ~/.config/zsh/alias
 [ -f ~/.env.sh ] && source ~/.env.sh
 
 # colors
-test -r ~/.config/theme/dircolors/current && eval "$(dircolors ~/.config/theme/dircolors/current)" 
+test -r ~/.config/theme/dircolors/current && eval "$(dircolors ~/.config/theme/dircolors/current)"
 
 # kitty ssh fix
 [ $TERM = "xterm-kitty" ] && alias ssh="kitten ssh"
+
+# fzf-history-search
+export ZSH_FZF_HISTORY_SEARCH_EVENT_NUMBERS=0
+export ZSH_FZF_HISTORY_SEARCH_DATES_IN_SEARCH=0
+export ZSH_FZF_HISTORY_SEARCH_REMOVE_DUPLICATES=1
 
 # prompt
 [ $TERM != "linux" ] && export STARSHIP_CONFIG=~/.config/theme/starship/current && eval "$(starship init zsh)"
