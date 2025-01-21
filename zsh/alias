@@ -1,5 +1,9 @@
 alias ll="ls -la"
 
+# copy paste
+alias c="wl-copy"
+alias p="wl-paste"
+
 # navigation
 alias dl="cd $HOME/Downloads"
 alias wp="cd $HOME/workspace"
@@ -17,3 +21,10 @@ alias ns-mvn="nix-shell ~/.config/nix-shell/mvn-builder.nix"
 
 # core utils
 alias tf="tail -f"
+
+# fabric-ai
+for pattern_file in $HOME/.config/fabric/patterns/*; do
+    pattern_name=$(basename "$pattern_file")
+    alias_command="alias $pattern_name='fabric --pattern $pattern_name'"
+    eval "$alias_command"
+done

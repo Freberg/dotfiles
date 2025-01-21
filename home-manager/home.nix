@@ -45,6 +45,8 @@
         nodePackages.bash-language-server
         # tool chains
         rustup
+        # ai
+        fabric-ai
     ];
 
     programs.zsh = {
