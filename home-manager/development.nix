@@ -14,6 +14,7 @@ in
         ansible
         gh
         pkgsUnstable.vscode
+        lazydocker
         pkgsUnstable.devpod
         pkgsUnstable.jetbrains.gateway
         pkgsNur.repos.dagger.dagger
