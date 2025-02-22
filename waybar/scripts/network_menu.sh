@@ -13,7 +13,7 @@ function wifi_menu() {
         nmcli con down "$selected_wifi"
     else
         notify-send "wifi" "connecting to $selected_wifi"
-        nmcli con up "$selected_wifi" || kitty nmcli con up "$selected_wifi" --ask
+        nmcli con up "$selected_wifi" || alacritty -e nmcli dev wifi con "$selected_wifi" --ask
     fi
 }
 

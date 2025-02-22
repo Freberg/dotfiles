@@ -18,7 +18,7 @@ selected_action=$(action_menu "devpod actions" "$actions" | cut -d ' ' -f 2)
 case $selected_action in
     up)
         notify-send "devpod" "up ${selected}..."
-        kitty devpod up "${selected}"
+        alacritty -e devpod up "${selected}"
         ;;
     stop)
         notify-send "devpod" "stopping ${selected}..."

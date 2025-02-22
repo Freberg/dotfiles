@@ -33,7 +33,7 @@ case $selected_action in
         ;;
     exec)
         notify-send "docker" "exec ${selected}..."
-        kitty docker exec -it $selected sh
+        alacritty -e docker exec -it $selected sh
         ;;
 esac
 
