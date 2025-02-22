@@ -2,7 +2,17 @@ alias ll="ls -la"
 
 # copy paste
 alias c="wl-copy"
-alias p="wl-paste"
+#alias p="wl-paste"
+
+p() {
+    count="${1:-1}"
+    local paste_result=""
+    for i in $(seq $count)
+    do
+        paste_result="$paste_result$(cliphist list | sed "${i}q;d" | cliphist decode)\n"
+    done
+    echo $paste_result | head -c -1
+}
 
 # navigation
 alias dl="cd $HOME/Downloads"
@@ -18,13 +28,7 @@ alias gc="git commit -m"
 alias ns="nix-shell"
 alias ns-bin="nix-shell ~/.config/nix-shell/bin-runner.nix"
 alias ns-mvn="nix-shell ~/.config/nix-shell/mvn-builder.nix"
+alias ns-py="nix-shell ~/.config/nix-shell/py.nix"
 
 # core utils
 alias tf="tail -f"
-
-# fabric-ai
-for pattern_file in $HOME/.config/fabric/patterns/*; do
-    pattern_name=$(basename "$pattern_file")
-    alias_command="alias $pattern_name='fabric --pattern $pattern_name'"
-    eval "$alias_command"
-done
