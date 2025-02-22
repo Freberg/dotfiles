@@ -24,6 +24,7 @@
         gnome-terminal
         # shell
         sheldon
+        nushell
         # prompt
         starship
         # notifications
@@ -61,6 +62,7 @@
         ];
     };
 
+    xdg.portal.config.common.default = "*";
     wayland.windowManager.hyprland.systemd.enable = false;
 
     home.stateVersion = "24.11";
