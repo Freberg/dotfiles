@@ -1,4 +1,7 @@
 { pkgs, ... }:
+let
+    pkgsUnstable = import <nixpkgs-unstable> {};
+in
 {
     imports = [
         ./ui.nix
@@ -22,6 +25,14 @@
         kitty
         alacritty
         gnome-terminal
+        file
+        bat
+        chafa
+        eza
+        dig
+        pkgsUnstable.fzf
+        delta
+        glab
         # shell
         sheldon
         nushell

@@ -2,7 +2,6 @@
 {
     home.packages = with pkgs; [
         visidata
-        fzf
         jq
         rclone
         zip
