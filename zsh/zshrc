@@ -16,4 +16,4 @@ source ~/.config/zsh/fzf.zsh
 eval "$(fzf --zsh)"
 
 # prompt
-[ $TERM != "linux" ] && export STARSHIP_CONFIG=~/.config/theme/starship/current && eval "$(starship init zsh)"
+[ $TERM != "linux" ] && export STARSHIP_CONFIG=~/.config/starship/starship.toml && eval "$(starship init zsh)"

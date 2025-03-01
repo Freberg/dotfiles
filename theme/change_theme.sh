@@ -7,16 +7,14 @@ change_theme () {
 
 theme=$1
 
-change_theme "dircolors" 
-change_theme "dunst"
 change_theme "alacritty"
-change_theme "kitty"
-change_theme "gtklock"
-change_theme "starship"
+change_theme "dircolors"
+change_theme "dunst"
 change_theme "hypr"
-change_theme "wofi"
-change_theme "waybar"
+change_theme "kitty"
 change_theme "wallpaper"
+change_theme "waybar"
+change_theme "wofi"
 
 killall -r -SIGUSR2 ".*waybar.*"
 killall -r ".*dunst.*"
