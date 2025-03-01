@@ -5,11 +5,12 @@
 !/hypr
 !/kitty
 !/nix-shell
+!/nushell**
 !/scripts
 !/sheldon
 !/theme
 !/walker**
-!/waybar
+!/waybar**
 !/wofi
 !/zsh
 !*.nix
