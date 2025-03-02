@@ -13,7 +13,5 @@ in
         pkgsUnstable.walker
         hyprpaper
         hyprlock
-        gtklock
-        greetd.gtkgreet
     ];
 }

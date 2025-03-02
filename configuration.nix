@@ -50,6 +50,7 @@
     hardware.pulseaudio.enable = false;
     hardware.bluetooth.enable = true;
     hardware.bluetooth.powerOnBoot = true;
+    services.hardware.bolt.enable = true;
 
     # console keymap
     console.keyMap = "sv-latin1";
@@ -115,7 +116,6 @@
     boot.kernelModules = [ "ecryptfs" ];
 
     # lock screen
-    security.pam.services.gtklock.text = lib.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
     security.pam.services.hyprlock.text = lib.readFile "${pkgs.hyprlock}/etc/pam.d/hyprlock";
 
     # antivirus
