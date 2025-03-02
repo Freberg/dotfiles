@@ -12,7 +12,10 @@ _fzf_comprun() {
     case "$command" in
         export|unset)   fzf --preview "eval 'echo \${}'" "$@" ;;
         ssh)            fzf --preview 'dig {}' "$@" ;;
-        docker)         fzf --preview "echo {} | awk '{print \$1}' | xargs docker inspect" "$@" ;;
+        ps)             fzf --preview "echo {} | awk '{print \$2}' | xargs -I PID nu -c 'ps -l | where pid == PID | to json' | \
+                            bat --color always --file-name pid.json" "$@" ;;
+        docker)         fzf --preview "echo {} | awk '{print \$1}' | xargs docker inspect | \
+                            bat --color always --file-name docker.json" "$@" ;;
         glab)           fzf --preview "echo {} | awk '{print \$1}' | xargs glab mr view" "$@" ;;
         *)              fzf --preview "$show_file_or_dir_preview" "$@" ;;
     esac
@@ -46,6 +49,16 @@ _fzf_complete_glab() {
 
 _fzf_complete_glab_post() {
     awk '{print $1}' | sed 's/!//'
+}
+
+_fzf_complete_ps() {
+    _fzf_complete "--multi --header-lines=1 " "$@" < <(
+        ps -ef
+    )
+}
+
+_fzf_complete_ps_post() {
+    awk '{print $2}'
 }
 
 source ~/.config/zsh/fzf-git.sh
