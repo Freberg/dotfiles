@@ -14,6 +14,7 @@ in
         ansible
         gh
         pkgsUnstable.vscode
+        lazygit
         lazydocker
         pkgsUnstable.devpod
         pkgsUnstable.jetbrains.gateway
