@@ -9,9 +9,8 @@
             Unit.Description = "timer for antivirus-scan";
             Install.WantedBy = [ "timers.target" ];
             Timer = {
-                #OnBootSec = "15min";
-                OnUnitActiveSec = "1w";
-                Persistent = true;
+                OnUnitInactiveSec = "1w";
+                OnCalendar = "*-*-01 10:00:00";
                 Unit = "antivirus-scan.service";
             };
         };
@@ -19,7 +18,6 @@
     systemd.user.services = {
         antivirus-scan = {
             Unit.Description = "service for antivirus-scan";
-            Install.WantedBy = [ "default.target" ];
             Service = {
                 Type = "oneshot";
                 ExecStart = toString (pkgs.writeShellScript "anti-virus-script" ''
