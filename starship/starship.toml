@@ -21,6 +21,7 @@ $nim\
 $python\
 $rust\
 $scala\
+$nix_shell\
 [](fg:purple bg:yellow)\
 $docker_context\
 [](fg:yellow bg:bright-black)\
@@ -144,3 +145,8 @@ format = '[  $time ]($style)'
 format = '[ ${symbol} ${version} (\($virtualenv\))]($style)'
 style = "bg:purple fg:black"
 symbol = ''
+
+[nix_shell]
+format = '[ $symbol$state( \($name\)) ]($style)'
+symbol = '❄️ '
+style = "bg:purple fg:black"
