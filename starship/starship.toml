@@ -1,0 +1,146 @@
+format = """
+[ ](bg:bright-black fg:bright-black)\
+$os\
+$shell\
+[](bg:blue fg:bright-black)\
+$directory\
+[](fg:blue bg:green)\
+$git_branch\
+$git_status\
+[](fg:green bg:purple)\
+$c\
+$elixir\
+$elm\
+$golang\
+$gradle\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$python\
+$rust\
+$scala\
+[](fg:purple bg:yellow)\
+$docker_context\
+[](fg:yellow bg:bright-black)\
+$time\
+[ ](fg:bright-black)\
+"""
+
+# Disable the blank line at the start of the prompt
+# add_newline = false
+
+[shell]
+format = '[$indicator ]($style)'
+style = "bg:bright-black"
+disabled = false
+
+# An alternative to the username module which displays a symbol that
+# represents the current operating system
+[os]
+style = "bg:bright-black"
+disabled = true # Disabled by default
+
+[directory]
+style = "bg:blue fg:black"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = "󰈙"
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = "  "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important  " = "  "
+
+[c]
+symbol = " "
+style = "bg:purple fg:black"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:yellow fg:black"
+format = '[ $symbol $context ]($style) $path'
+
+[elixir]
+symbol = " "
+style = "bg:purple fg:black"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bg:purple fg:black"
+format = '[ $symbol ($version) ]($style)'
+
+[git_branch]
+symbol = ""
+style = "bg:green fg:black"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:green fg:black"
+format = '[$all_status$ahead_behind ]($style)'
+
+[golang]
+symbol = " "
+style = "bg:purple fg:black"
+format = '[ $symbol ($version) ]($style)'
+
+[gradle]
+style = "bg:purple fg:black"
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:purple fg:black"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = " "
+style = "bg:purple fg:black"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "bg:purple fg:black"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:purple fg:black"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = " "
+style = "bg:purple fg:black"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:purple fg:black"
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = " "
+style = "bg:purple fg:black"
+format = '[ $symbol ($version) ]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:bright-black"
+format = '[  $time ]($style)'
+
+[python]
+format = '[ ${symbol} ${version} (\($virtualenv\))]($style)'
+style = "bg:purple fg:black"
+symbol = ''
