@@ -106,7 +106,7 @@ style = "bg:purple fg:black"
 format = '[ $symbol ($version) ]($style)'
 
 [java]
-symbol = " "
+symbol = ''
 style = "bg:purple fg:black"
 format = '[ $symbol ($version) ]($style)'
 
@@ -142,11 +142,11 @@ style = "bg:bright-black"
 format = '[  $time ]($style)'
 
 [python]
-format = '[ ${symbol} ${version} (\($virtualenv\))]($style)'
+format = '[ ${symbol} ${version} (\($virtualenv\)) ]($style)'
 style = "bg:purple fg:black"
 symbol = ''
 
 [nix_shell]
-format = '[ $symbol$state( \($name\)) ]($style)'
+format = '[$symbol$state( \($name\)) ]($style)'
 symbol = '❄️ '
 style = "bg:purple fg:black"
