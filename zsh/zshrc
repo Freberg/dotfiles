@@ -8,9 +8,6 @@ source ~/.config/zsh/alias
 test -r ~/.config/theme/dircolors/current && eval "$(dircolors ~/.config/theme/dircolors/current)"
 export BAT_THEME=Nord
 
-# kitty ssh fix
-[ $TERM = "xterm-kitty" ] && alias ssh="kitten ssh"
-
 # fzf
 source ~/.config/zsh/fzf.zsh
 eval "$(fzf --zsh)"
