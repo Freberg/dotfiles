@@ -19,6 +19,7 @@ config.keys = {
   { key = 'r',          mods = 'ALT', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
 
   { key = 'q',          mods = 'ALT', action = act.SplitPane { direction = 'Down', size = { Percent = 20 } } },
+  { key = 'e',          mods = 'ALT', action = act.SplitPane { direction = 'Right', size = { Percent = 30 } } },
   { key = 'w',          mods = 'ALT', action = act.TogglePaneZoomState },
   { key = '+',          mods = 'ALT', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
   { key = '-',          mods = 'ALT', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
