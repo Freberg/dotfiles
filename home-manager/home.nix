@@ -56,7 +56,6 @@ in
         # editors
         vim
         # LSPs
-        lua-language-server
         nodePackages.bash-language-server
         # tool chains
         rustup
