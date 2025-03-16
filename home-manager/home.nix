@@ -11,6 +11,7 @@ in
         ./java_development.nix
         ./python_development.nix
         ./kubernetes.nix
+        ./neovim.nix
         ./antivirus.nix
         ./email.nix
     ];
@@ -64,13 +65,6 @@ in
     programs.zsh = {
         enable = true;
         initExtra = "source ~/.config/zsh/zshrc";
-    };
-
-    programs.neovim = {
-        enable = true;
-        plugins = with pkgs.vimPlugins; [
-            packer-nvim
-        ];
     };
 
     xdg.portal.config.common.default = "*";

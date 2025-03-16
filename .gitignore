@@ -6,11 +6,11 @@
 !/kitty
 !/nix-shell
 !/nushell**
+!/nvim**
 !/scripts
 !/sheldon
 !/starship
 !/theme**
-!/walker**
 !/waybar**
 !/wofi
 !/zsh
