@@ -12,6 +12,7 @@
 !/starship
 !/theme**
 !/waybar**
+!/wezterm**
 !/wofi
 !/zsh
 !*.nix
