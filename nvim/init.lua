@@ -8,6 +8,7 @@ vim.cmd [[
 ]]
 
 vim.opt.colorcolumn = "120"
+vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.expandtab = true
