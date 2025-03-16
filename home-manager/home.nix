@@ -25,6 +25,7 @@ in
         # terminal
         kitty
         alacritty
+        wezterm
         gnome-terminal
         file
         bat
@@ -43,6 +44,7 @@ in
         libnotify
         dunst
         # clipboard
+        wtype
         cliphist
         wl-clipboard
         sway-contrib.grimshot

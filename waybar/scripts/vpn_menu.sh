@@ -7,7 +7,7 @@ function connect_vpn() {
     selected_vpn=$(action_menu "vpns" $vpns)
     [ -z "$selected_vpn" ] && exit 0
     notify-send "vpn" "connecting to $selected_vpn"
-    alacritty -e nmcli connection up $selected_vpn --ask 
+    wezterm start nmcli connection up $selected_vpn --ask
 }
 
 active_vpn=$(nmcli connection show --active | grep vpn | awk '{print $1}')
@@ -15,7 +15,7 @@ active_vpn=$(nmcli connection show --active | grep vpn | awk '{print $1}')
 
 sleep 0.1
 
-selected_action=$(action_menu "vpn actions" "$actions" | cut -d ' ' -f 2) 
+selected_action=$(action_menu "vpn actions" "$actions" | cut -d ' ' -f 2)
 case $selected_action in
     disconnect)
         notify-send "vpn" "disconnecting from $active_vpn"
@@ -27,4 +27,3 @@ case $selected_action in
 esac
 
 update_waybar
-    

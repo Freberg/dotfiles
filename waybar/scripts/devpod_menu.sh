@@ -17,18 +17,17 @@ selected_action=$(action_menu "devpod actions" "$actions" | cut -d ' ' -f 2)
 
 case $selected_action in
     up)
-        notify-send "devpod" "up ${selected}..."
-        alacritty -e devpod up "${selected}"
+        notify-send "devpod" "up $selected..."
+        wezterm start devpod up $selected
         ;;
     stop)
-        notify-send "devpod" "stopping ${selected}..."
-        devpod stop ${selected}
+        notify-send "devpod" "stopping $selected..."
+        devpod stop $selected
         ;;
     delete)
-        notify-send "devpod" "deleting ${selected}..."
-        devpod delete ${selected}
+        notify-send "devpod" "deleting $selected..."
+        devpod delete $selected
         ;;
 esac
 
 update_waybar
-
