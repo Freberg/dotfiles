@@ -20,5 +20,5 @@ killall -r -SIGUSR2 ".*waybar.*"
 killall -r ".*dunst.*"
 nohup dunst -conf "~/.config/theme/dunst/current" >/dev/null 2>&1 &
 
-sed -i "s/wallpaper = .*/wallpaper = ,~\/.config\/theme\/wallpaper\/${theme}.png/g" ~/.config/hypr/hyprpaper.conf
-hyprctl monitors | grep 'Monitor' | awk '{ print $2 }' | xargs -I {} hyprctl hyprpaper wallpaper "{},~/.config/theme/wallpaper/$theme.png"
+sed -i "s/wallpaper = .*/wallpaper = ,~\/.config\/wallpaper\/${theme}.png/g" ~/.config/hypr/hyprpaper.conf
+hyprctl monitors | grep 'Monitor' | awk '{ print $2 }' | xargs -I {} hyprctl hyprpaper wallpaper "{},~/.config/wallpaper/$theme.png"
