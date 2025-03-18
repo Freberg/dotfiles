@@ -1,4 +1,7 @@
 { pkgs, ... }:
+let
+  pkgsUnstable = import <nixpkgs-unstable> { };
+in
 {
   home.packages = with pkgs; [
     # plugin dependencies
@@ -12,6 +15,6 @@
     ruff
     bash-language-server
     # neovim
-    neovim
+    pkgsUnstable.neovim
   ];
 }
