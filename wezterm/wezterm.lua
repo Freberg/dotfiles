@@ -2,12 +2,19 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 local act = wezterm.action
 
-config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
   left = 0,
   right = 0,
   top = 0,
   bottom = 0,
+}
+
+config.hide_tab_bar_if_only_one_tab = true
+config.show_close_tab_button_in_tabs = false
+config.show_new_tab_button_in_tab_bar = false
+config.window_frame = {
+  font_size = 8.0,
+  font = wezterm.font { family = 'JetBrainsMono Nerd Font', weight = 'Bold' }
 }
 
 config.font_size = 10.0
@@ -17,6 +24,13 @@ config.color_scheme = 'nord'
 
 config.keys = {
   { key = 'r',          mods = 'ALT', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
+
+  { key = 'a',          mods = 'ALT', action = act.SpawnTab 'CurrentPaneDomain' },
+  { key = '1',          mods = 'ALT', action = act.ActivateTab(0) },
+  { key = '2',          mods = 'ALT', action = act.ActivateTab(1) },
+  { key = '3',          mods = 'ALT', action = act.ActivateTab(2) },
+  { key = '4',          mods = 'ALT', action = act.ActivateTab(3) },
+  { key = '5',          mods = 'ALT', action = act.ActivateTab(4) },
 
   { key = 'q',          mods = 'ALT', action = act.SplitPane { direction = 'Down', size = { Percent = 20 } } },
   { key = 'e',          mods = 'ALT', action = act.SplitPane { direction = 'Right', size = { Percent = 30 } } },
