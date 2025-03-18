@@ -5,6 +5,5 @@
 for dots in */ ; do
   echo "linking to $dots from $XDG_CONFIG_HOME/$(basename $dots)"
   ln -sTrf "$dots" "$XDG_CONFIG_HOME"/"$(basename $dots)" || exit 1
-  exit 1
 done
 
