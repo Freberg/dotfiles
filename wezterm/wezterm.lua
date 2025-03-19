@@ -23,50 +23,73 @@ config.window_background_opacity = 0.5
 config.color_scheme = 'nord'
 
 config.keys = {
-  { key = 'r',          mods = 'ALT', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
+  { key = 'r', mods = 'ALT', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
+  { key = 'x', mods = 'ALT', action = act.ActivateCopyMode },
 
-  { key = 'a',          mods = 'ALT', action = act.SpawnTab 'CurrentPaneDomain' },
-  { key = '1',          mods = 'ALT', action = act.ActivateTab(0) },
-  { key = '2',          mods = 'ALT', action = act.ActivateTab(1) },
-  { key = '3',          mods = 'ALT', action = act.ActivateTab(2) },
-  { key = '4',          mods = 'ALT', action = act.ActivateTab(3) },
-  { key = '5',          mods = 'ALT', action = act.ActivateTab(4) },
+  { key = 'a', mods = 'ALT', action = act.SpawnTab 'CurrentPaneDomain' },
+  { key = '1', mods = 'ALT', action = act.ActivateTab(0) },
+  { key = '2', mods = 'ALT', action = act.ActivateTab(1) },
+  { key = '3', mods = 'ALT', action = act.ActivateTab(2) },
+  { key = '4', mods = 'ALT', action = act.ActivateTab(3) },
+  { key = '5', mods = 'ALT', action = act.ActivateTab(4) },
 
-  { key = 'q',          mods = 'ALT', action = act.SplitPane { direction = 'Down', size = { Percent = 20 } } },
-  { key = 'e',          mods = 'ALT', action = act.SplitPane { direction = 'Right', size = { Percent = 30 } } },
-  { key = 'w',          mods = 'ALT', action = act.TogglePaneZoomState },
-  { key = '+',          mods = 'ALT', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
-  { key = '-',          mods = 'ALT', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
-  { key = 'c',          mods = 'ALT', action = act.CloseCurrentPane { confirm = true } },
+  { key = 'q', mods = 'ALT', action = act.SplitPane { direction = 'Down', size = { Percent = 20 } } },
+  { key = 'e', mods = 'ALT', action = act.SplitPane { direction = 'Right', size = { Percent = 30 } } },
+  { key = 'w', mods = 'ALT', action = act.TogglePaneZoomState },
+  { key = '+', mods = 'ALT', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+  { key = '-', mods = 'ALT', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
+  { key = 'c', mods = 'ALT', action = act.CloseCurrentPane { confirm = true } },
 
-  { key = 'LeftArrow',  mods = 'ALT', action = act.ActivatePaneDirection 'Left' },
-  { key = 'h',          mods = 'ALT', action = act.ActivatePaneDirection 'Left' },
-
-  { key = 'RightArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Right' },
-  { key = 'l',          mods = 'ALT', action = act.ActivatePaneDirection 'Right' },
-
-  { key = 'UpArrow',    mods = 'ALT', action = act.ActivatePaneDirection 'Up' },
-  { key = 'k',          mods = 'ALT', action = act.ActivatePaneDirection 'Up' },
-
-  { key = 'DownArrow',  mods = 'ALT', action = act.ActivatePaneDirection 'Down' },
-  { key = 'j',          mods = 'ALT', action = act.ActivatePaneDirection 'Down' },
+  { key = 'h', mods = 'ALT', action = act.ActivatePaneDirection 'Left' },
+  { key = 'l', mods = 'ALT', action = act.ActivatePaneDirection 'Right' },
+  { key = 'k', mods = 'ALT', action = act.ActivatePaneDirection 'Up' },
+  { key = 'j', mods = 'ALT', action = act.ActivatePaneDirection 'Down' },
 }
 
 config.key_tables = {
+  copy_mode = {
+    { key = 'h', mods = 'NONE', action = act.CopyMode 'MoveLeft' },
+    { key = 'j', mods = 'NONE', action = act.CopyMode 'MoveDown' },
+    { key = 'k', mods = 'NONE', action = act.CopyMode 'MoveUp' },
+    { key = 'l', mods = 'NONE', action = act.CopyMode 'MoveRight' },
+
+    { key = 'z', mods = 'NONE', action = act.CopyMode 'MoveBackwardSemanticZone' },
+    { key = 'Z', mods = 'NONE', action = act.CopyMode 'MoveForwardSemanticZone' },
+    { key = 'z', mods = 'CTRL', action = act.CopyMode { SetSelectionMode = 'SemanticZone' } },
+    { key = 'z', mods = 'ALT',  action = act.CopyMode { MoveBackwardZoneOfType = 'Output' } },
+    { key = 'Z', mods = 'ALT',  action = act.CopyMode { MoveForwardZoneOfType = 'Output' } },
+
+    {
+      key = 'y',
+      mods = 'NONE',
+      action = act.Multiple {
+        { CopyTo = 'ClipboardAndPrimarySelection' },
+        { CopyMode = 'MoveToScrollbackBottom' },
+        { CopyMode = 'Close' },
+      },
+    },
+    {
+      key = 'Escape',
+      modes = 'NONE',
+      action = act.Multiple {
+        { CopyMode = 'MoveToScrollbackBottom' },
+        { CopyMode = 'Close' } }
+    },
+    {
+      key = 'q',
+      modes = 'NONE',
+      action = act.Multiple {
+        { CopyMode = 'MoveToScrollbackBottom' },
+        { CopyMode = 'Close' } }
+    },
+  },
   resize_pane = {
-    { key = 'LeftArrow',  action = act.AdjustPaneSize { 'Left', 1 } },
-    { key = 'h',          action = act.AdjustPaneSize { 'Left', 1 } },
+    { key = 'h',      action = act.AdjustPaneSize { 'Left', 1 } },
+    { key = 'l',      action = act.AdjustPaneSize { 'Right', 1 } },
+    { key = 'k',      action = act.AdjustPaneSize { 'Up', 1 } },
+    { key = 'j',      action = act.AdjustPaneSize { 'Down', 1 } },
 
-    { key = 'RightArrow', action = act.AdjustPaneSize { 'Right', 1 } },
-    { key = 'l',          action = act.AdjustPaneSize { 'Right', 1 } },
-
-    { key = 'UpArrow',    action = act.AdjustPaneSize { 'Up', 1 } },
-    { key = 'k',          action = act.AdjustPaneSize { 'Up', 1 } },
-
-    { key = 'DownArrow',  action = act.AdjustPaneSize { 'Down', 1 } },
-    { key = 'j',          action = act.AdjustPaneSize { 'Down', 1 } },
-
-    { key = 'Escape',     action = 'PopKeyTable' },
+    { key = 'Escape', action = 'PopKeyTable' },
   },
 }
 

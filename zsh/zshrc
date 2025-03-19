@@ -12,5 +12,8 @@ export BAT_THEME=Nord
 source ~/.config/zsh/fzf.zsh
 eval "$(fzf --zsh)"
 
+# wezterm
+source ~/.config/wezterm/wezterm.sh
+
 # prompt
 [ $TERM != "linux" ] && export STARSHIP_CONFIG=~/.config/starship/starship.toml && eval "$(starship init zsh)"

@@ -2,6 +2,7 @@ alias ll="ls -la"
 
 # copy paste
 alias c="wl-copy"
+alias y="wl-copy"
 
 p() {
     count="${1:-1}"
