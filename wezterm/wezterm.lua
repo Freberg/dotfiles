@@ -1,4 +1,5 @@
 local wezterm = require 'wezterm'
+local statusline = require 'statusline'
 local config = wezterm.config_builder()
 local act = wezterm.action
 
@@ -9,7 +10,8 @@ config.window_padding = {
   bottom = 0,
 }
 
-config.hide_tab_bar_if_only_one_tab = true
+--config.hide_tab_bar_if_only_one_tab = true
+config.tab_bar_at_bottom = true
 config.show_close_tab_button_in_tabs = false
 config.show_new_tab_button_in_tab_bar = false
 config.window_frame = {
@@ -19,7 +21,7 @@ config.window_frame = {
 
 config.font_size = 10.0
 config.font = wezterm.font 'JetBrainsMono Nerd Font'
-config.window_background_opacity = 0.5
+config.window_background_opacity = 0.7
 config.color_scheme = 'nord'
 
 config.keys = {
@@ -92,5 +94,8 @@ config.key_tables = {
     { key = 'Escape', action = 'PopKeyTable' },
   },
 }
+
+statusline.set_recommended(config)
+statusline.setup()
 
 return config
