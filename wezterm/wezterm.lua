@@ -95,7 +95,6 @@ config.key_tables = {
   },
 }
 
-statusline.set_recommended(config)
-statusline.setup()
+statusline.setup(config)
 
 return config

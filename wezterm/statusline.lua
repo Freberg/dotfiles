@@ -3,18 +3,7 @@ local M = {}
 
 local HARDWARE_POLL_INTERVAL = 1
 local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
-local COLORS = {
-  background = '#2E3440',
-  foreground = '#D8DEE9',
-  black = '#3B4252',
-  red = '#BF616A',
-  green = '#A3BE8C',
-  yellow = '#EBCB8B',
-  blue = '#81A1C1',
-  magenta = '#B48EAD',
-  cyan = '#88C0D0',
-  white = '#E5E9F0'
-}
+
 
 local function cpu_component()
   local CPU = {}
@@ -121,24 +110,36 @@ local function network_component()
   return NETWORK
 end
 
-function M.set_recommended(config)
+function M.setup(config)
+  local color_scheme = wezterm.color.get_builtin_schemes()[config.color_scheme]
+  local colors = {
+    background = color_scheme.background,
+    foreground = color_scheme.foreground,
+    black = color_scheme.ansi[1],
+    red = color_scheme.ansi[2],
+    green = color_scheme.ansi[3],
+    yellow = color_scheme.ansi[4],
+    blue = color_scheme.ansi[5],
+    magenta = color_scheme.ansi[6],
+    cyan = color_scheme.ansi[7],
+    white = color_scheme.ansi[8],
+  }
+
   config.use_fancy_tab_bar = false
   config.colors = {
     tab_bar = {
-      background = COLORS.background,
+      background = colors.background,
       active_tab = {
-        bg_color = COLORS.background,
-        fg_color = COLORS.foreground
+        bg_color = colors.background,
+        fg_color = colors.foreground
       },
       inactive_tab = {
-        bg_color = COLORS.black,
-        fg_color = COLORS.foreground
+        bg_color = colors.black,
+        fg_color = colors.foreground
       }
     }
   }
-end
 
-function M.setup()
   local cpu = cpu_component()
   local memory = memory_component()
   local network = network_component()
@@ -155,9 +156,9 @@ function M.setup()
 
   wezterm.on('update-right-status', function(window)
     local cells = {
-      update_cell(COLORS.background, COLORS.yellow, ' ' .. network.update() .. ' '),
-      update_cell(COLORS.background, COLORS.blue, ' ' .. memory.update() .. ' ' .. cpu.update() .. ' '),
-      update_cell(COLORS.foreground, COLORS.black, '  ' .. wezterm.time.now():format('%H:%M') .. ' ')
+      update_cell(colors.background, colors.yellow, ' ' .. network.update() .. ' '),
+      update_cell(colors.background, colors.blue, ' ' .. memory.update() .. ' ' .. cpu.update() .. ' '),
+      update_cell(colors.foreground, colors.black, '  ' .. wezterm.time.now():format('%H:%M') .. ' ')
     }
 
     local layout = {}
