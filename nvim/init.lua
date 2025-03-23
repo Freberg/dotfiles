@@ -7,9 +7,13 @@ vim.cmd [[
   highlight NonText ctermbg=none
 ]]
 
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 vim.opt.colorcolumn = "120"
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.scrolloff = 10
 
 vim.opt.expandtab = true
 vim.opt.smartindent = true
