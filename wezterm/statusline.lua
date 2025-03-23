@@ -125,7 +125,15 @@ function M.set_recommended(config)
   config.use_fancy_tab_bar = false
   config.colors = {
     tab_bar = {
-      background = COLORS.background
+      background = COLORS.background,
+      active_tab = {
+        bg_color = COLORS.background,
+        fg_color = COLORS.foreground
+      },
+      inactive_tab = {
+        bg_color = COLORS.black,
+        fg_color = COLORS.foreground
+      }
     }
   }
 end
