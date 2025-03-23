@@ -135,25 +135,31 @@ function M.setup()
   local memory = memory_component()
   local network = network_component()
 
+  local function update_cell(foreground, background, text)
+    return {
+      { Foreground = { Color = background } },
+      { Text = SOLID_LEFT_ARROW },
+      { Background = { Color = background } },
+      { Foreground = { Color = foreground } },
+      { Text = text },
+    }
+  end
+
   wezterm.on('update-right-status', function(window)
-    window:set_right_status(wezterm.format {
-      { Foreground = { Color = COLORS.yellow } },
-      { Text = SOLID_LEFT_ARROW },
-      { Background = { Color = COLORS.yellow } },
-      { Foreground = { Color = COLORS.background } },
-      { Text = ' ' .. network.update() .. ' ' },
-      { Foreground = { Color = COLORS.blue } },
-      { Text = SOLID_LEFT_ARROW },
-      { Background = { Color = COLORS.blue } },
-      { Foreground = { Color = COLORS.background } },
-      { Text = ' ' .. memory.update() },
-      { Text = ' ' .. cpu.update() .. ' ' },
-      { Foreground = { Color = COLORS.black } },
-      { Text = SOLID_LEFT_ARROW },
-      { Background = { Color = COLORS.black } },
-      { Foreground = { Color = COLORS.foreground } },
-      { Text = '  ' .. wezterm.time.now():format('%H:%M') .. ' ' }
-    })
+    local cells = {
+      update_cell(COLORS.background, COLORS.yellow, ' ' .. network.update() .. ' '),
+      update_cell(COLORS.background, COLORS.blue, ' ' .. memory.update() .. ' ' .. cpu.update() .. ' '),
+      update_cell(COLORS.foreground, COLORS.black, '  ' .. wezterm.time.now():format('%H:%M') .. ' ')
+    }
+
+    local layout = {}
+    for _, cell in ipairs(cells) do
+      for _, format_item in ipairs(cell) do
+        table.insert(layout, format_item)
+      end
+    end
+
+    window:set_right_status(wezterm.format(layout))
   end)
 end
 
