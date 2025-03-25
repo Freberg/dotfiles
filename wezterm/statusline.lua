@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 local M = {}
 
-local HARDWARE_POLL_INTERVAL = 1
+local HARDWARE_POLL_INTERVAL = 5
 local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
 
 
@@ -9,10 +9,10 @@ local function cpu_component()
   local CPU = {}
   local last_update_time = 0
   local last_value = ''
-  local last_metrics
+  local last_metrics = nil
   CPU.update = function()
     local current_time = os.time()
-    if last_value ~= '' and current_time - last_update_time < HARDWARE_POLL_INTERVAL then
+    if last_metrics ~= nil and current_time - last_update_time < HARDWARE_POLL_INTERVAL then
       return last_value
     end
 
@@ -30,7 +30,7 @@ local function cpu_component()
     end
     if last_metrics == nil then
       last_metrics = metrics
-      return ''
+      return last_value
     end
 
     local total_diff = metrics[1] + metrics[2] - last_metrics[1] - last_metrics[2]
@@ -74,10 +74,10 @@ local function network_component()
   local NETWORK = {}
   local last_update_time = 0
   local last_value = ''
-  local last_metrics
+  local last_metrics = nil
   NETWORK.update = function()
     local current_time = os.time()
-    if last_value ~= '' and current_time - last_update_time < HARDWARE_POLL_INTERVAL then
+    if last_metrics ~= nil and current_time - last_update_time < HARDWARE_POLL_INTERVAL then
       return last_value
     end
 
@@ -95,8 +95,7 @@ local function network_component()
     end
     if last_metrics == nil then
       last_metrics = metrics
-      last_update_time = current_time
-      return ''
+      return last_value
     end
 
     last_value = string.format('󰇚 %.0fkbps 󰕒 %.0fkbps',
