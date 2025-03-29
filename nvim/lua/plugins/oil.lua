@@ -5,6 +5,9 @@ return {
   lazy = false,
   config = function()
     require("oil").setup {
+      view_options = {
+        show_hidden = true,
+      },
       float = {
         max_width = 0.8,
         max_height = 0.8
