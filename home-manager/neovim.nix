@@ -8,6 +8,8 @@ in
     ripgrep
     gnumake
     # lsps & formatters
+    dockerfile-language-server-nodejs
+    docker-compose-language-service
     lua-language-server
     nixd
     nixfmt-rfc-style
