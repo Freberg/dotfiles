@@ -1,0 +1,21 @@
+{
+  system,
+  pkgs,
+  pkgsUnstable,
+  dagger,
+  ...
+}:
+{
+  home.packages = with pkgs; [
+    pkgsUnstable.act
+    ansible
+    gh
+    pkgsUnstable.vscode
+    lazygit
+    lazydocker
+    pkgsUnstable.devpod
+    pkgsUnstable.jetbrains.gateway
+    super-productivity
+    dagger.packages.${system}.dagger
+  ];
+}

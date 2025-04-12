@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-let
-  pkgsUnstable = import <nixpkgs-unstable> { };
-in
+{ pkgs, pkgsUnstable, ... }:
 {
   home.packages = with pkgs; [
     # plugin dependencies
