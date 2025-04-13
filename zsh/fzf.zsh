@@ -16,6 +16,7 @@ _fzf_comprun() {
                             bat --color always --file-name pid.json" "$@" ;;
         docker)         fzf --preview "echo {} | awk '{print \$1}' | xargs docker inspect | \
                             bat --color always --file-name docker.json" "$@" ;;
+        git)            fzf --preview "echo {} | awk '{print \$1}' | xargs git log --color=always" "$@" ;;
         glab)           fzf --preview "echo {} | awk '{print \$1}' | xargs glab mr view" "$@" ;;
         *)              fzf --preview "$show_file_or_dir_preview" "$@" ;;
     esac
@@ -35,6 +36,20 @@ _fzf_complete_docker() {
 }
 
 _fzf_complete_docker_post() {
+    awk '{print $1}'
+}
+
+_fzf_complete_git() {
+    ARGS="$@"
+    if [[ $ARGS == 'git checkout'* || $ARGS == 'git diff'* ]]; then
+        _fzf_complete "--multi " "$@" < <(
+            git for-each-ref --sort=-committerdate refs/heads/ \
+              --format='%(refname:short)|%(committerdate:short)|%(contents:subject)' | column -t -s '|'
+        )
+    fi
+}
+
+_fzf_complete_git_post() {
     awk '{print $1}'
 }
 
