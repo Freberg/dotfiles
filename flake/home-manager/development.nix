@@ -7,15 +7,11 @@
 }:
 {
   home.packages = with pkgs; [
-    pkgsUnstable.act
+    vim
+    vscode
+    act
     ansible
-    gh
-    pkgsUnstable.vscode
-    lazygit
-    lazydocker
     pkgsUnstable.devpod
-    pkgsUnstable.jetbrains.gateway
-    super-productivity
     dagger.packages.${system}.dagger
   ];
 }

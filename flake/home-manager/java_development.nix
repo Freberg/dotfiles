@@ -18,6 +18,7 @@
     maven
     gradle
     jdk17
+    pkgsUnstable.jetbrains.gateway
     pkgsUnstable.jetbrains.idea-ultimate
     #graalvm-ce
     java-language-server

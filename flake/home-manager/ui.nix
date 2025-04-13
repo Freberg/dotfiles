@@ -1,10 +1,16 @@
 { pkgs, pkgsUnstable, ... }:
 {
   home.packages = with pkgs; [
+    # status bar
     pkgsUnstable.waybar
+    # launcher
     wofi
+    # wallpaper / lock screen
     hyprpaper
     hyprlock
+    # notifications
+    libnotify
+    dunst
   ];
 
   home.pointerCursor =

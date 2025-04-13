@@ -16,10 +16,13 @@
     sheldon
     nushell
     # clis
+    lazygit
+    lazydocker
     dig
     pkgsUnstable.fzf
     delta
     glab
+    gh
     # explore / preview
     bat
     eza

@@ -24,16 +24,9 @@
   home.packages = with pkgs; [
     # fonts
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    # notifications
-    libnotify
-    dunst
     # browser
     firefox
     chromium
-    # editors
-    vim
-    # tool chains
-    rustup
     # ai
     fabric-ai
   ];
