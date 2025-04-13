@@ -21,11 +21,13 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+if vim.env.NVIM_THEME == nil then vim.env.NVIM_THEME = "nord" end
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
     -- import your plugins
-    { import = "plugins/themes" },
+    { import = "plugins/themes/" .. vim.env.NVIM_THEME },
     { import = "plugins" },
   },
   -- Configure any other settings here. See the documentation for more details.

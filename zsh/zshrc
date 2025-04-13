@@ -6,7 +6,7 @@ source ~/.config/zsh/alias
 
 # colors
 test -r ~/.config/theme/dircolors/current && eval "$(dircolors ~/.config/theme/dircolors/current)"
-export BAT_THEME=Nord
+#test -r ~/.config/theme/env/current && source ~/.config/theme/env/current
 
 # fzf
 source ~/.config/zsh/fzf.zsh
