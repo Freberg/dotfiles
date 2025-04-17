@@ -1,8 +1,8 @@
 format = """
-[ ](bg:bright-black fg:bright-black)\
+[ ](bg:black fg:black)\
 $os\
 $shell\
-[](bg:blue fg:bright-black)\
+[](bg:blue fg:black)\
 $directory\
 [](fg:blue bg:green)\
 $git_branch\
@@ -24,9 +24,9 @@ $scala\
 $nix_shell\
 [](fg:purple bg:yellow)\
 $docker_context\
-[](fg:yellow bg:bright-black)\
+[](fg:yellow bg:black)\
 $time\
-[ ](fg:bright-black)\
+[ ](fg:black)\
 """
 
 # Disable the blank line at the start of the prompt
@@ -34,7 +34,7 @@ $time\
 
 [shell]
 format = '[$indicator ]($style)'
-style = "bg:bright-black"
+style = "bg:black"
 disabled = false
 
 # An alternative to the username module which displays a symbol that
@@ -138,7 +138,7 @@ format = '[ $symbol ($version) ]($style)'
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:bright-black"
+style = "bg:black"
 format = '[  $time ]($style)'
 
 [python]
