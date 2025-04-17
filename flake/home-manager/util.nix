@@ -10,5 +10,6 @@
     filezilla
     libreoffice
     gimp
+    thefuck
   ];
 }

@@ -15,5 +15,8 @@ eval "$(fzf --zsh)"
 # wezterm
 source ~/.config/wezterm/wezterm.sh
 
+# thefuck
+eval $(thefuck --alias)
+
 # prompt
 [ $TERM != "linux" ] && export STARSHIP_CONFIG=~/.config/starship/starship.toml && eval "$(starship init zsh)"
