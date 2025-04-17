@@ -131,7 +131,7 @@
     },
     "clock": {
         "format": " {0:%R}  {0:%Y-%m-%d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
     },
     "custom/separator_left_1": {
         "format": "",
