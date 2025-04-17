@@ -21,7 +21,7 @@ config.window_frame = {
 
 config.font_size = 10.0
 config.font = wezterm.font 'JetBrainsMono Nerd Font'
-config.window_background_opacity = 0.7
+config.window_background_opacity = 0.85
 config.color_scheme = os.getenv('WEZTERM_THEME')
 
 config.keys = {
