@@ -1,15 +1,4 @@
-@define-color background-darker rgba(30, 31, 41, 230);
-@define-color background #282828;
-@define-color selection #928374;
-@define-color foreground #ebdbb2;
-@define-color comment #928374;
-@define-color cyan #458588;
-@define-color green #98971a;
-@define-color orange #d65d0e;
-@define-color pink #d3869b;
-@define-color purple #b16286;
-@define-color red #cc241d;
-@define-color yellow #fabd2f;
+@import url("../css/gruvbox");
 
 @define-color background_color_1 @background;
 @define-color foreground_color_1 @foreground;
