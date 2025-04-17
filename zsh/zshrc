@@ -5,7 +5,7 @@ source ~/.config/zsh/alias
 [ -f ~/.env.sh ] && source ~/.env.sh
 
 # colors
-test -r ~/.config/theme/dircolors/current && eval "$(dircolors ~/.config/theme/dircolors/current)"
+#test -r ~/.config/theme/dircolors/current && eval "$(dircolors ~/.config/theme/dircolors/current)"
 #test -r ~/.config/theme/env/current && source ~/.config/theme/env/current
 
 # fzf

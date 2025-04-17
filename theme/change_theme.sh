@@ -11,7 +11,6 @@ change_theme () {
 
 theme=$1
 
-change_theme "dircolors"
 change_theme "dunst"
 change_theme "env"
 change_theme "hypr"
