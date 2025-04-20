@@ -59,12 +59,13 @@ return {
       },
     })
 
+    require 'lspconfig'.bashls.setup {}
     require 'lspconfig'.dockerls.setup {}
     require 'lspconfig'.docker_compose_language_service.setup {}
+    require 'lspconfig'.jdtls.setup {}
     require 'lspconfig'.nixd.setup {}
     require 'lspconfig'.pyright.setup {}
     require 'lspconfig'.ruff.setup {}
-    require 'lspconfig'.bashls.setup {}
 
     local cmp = require('cmp')
 

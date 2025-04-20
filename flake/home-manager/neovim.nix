@@ -7,6 +7,7 @@
     # lsps & formatters
     dockerfile-language-server-nodejs
     docker-compose-language-service
+    jdt-language-server
     lua-language-server
     nixd
     nixfmt-rfc-style
