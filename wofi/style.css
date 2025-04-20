@@ -15,6 +15,10 @@ window {
   background-color: @selection;
 }
 
+#input:focus {
+  box-shadow: 0 0 0 1px @cyan;
+}
+
 #inner-box {
   margin: 5px;
   border: none;
