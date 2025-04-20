@@ -6,7 +6,7 @@
 @define-color cyan #458588;
 @define-color green #98971a;
 @define-color orange #d65d0e;
-@define-color pink #d3869b;
+@define-color pink #b16286;
 @define-color purple #b16286;
 @define-color red #cc241d;
-@define-color yellow #fabd2f;
+@define-color yellow #d79921;
