@@ -13,7 +13,7 @@ function wifi_menu() {
         nmcli con down "$selected_wifi"
     else
         notify-send "wifi" "connecting to $selected_wifi"
-        nmcli con up "$selected_wifi" || wezterm start nmcli dev wifi con "$selected_wifi" --ask
+        nmcli con up "$selected_wifi" || launch_terminal nmcli dev wifi con "$selected_wifi" --ask
     fi
 }
 

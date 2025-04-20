@@ -33,7 +33,7 @@ case $selected_action in
         ;;
     exec)
         notify-send "docker" "exec $selected..."
-        wezterm start docker exec -it "$selected" sh
+        launch_terminal docker exec -it "$selected" sh
         ;;
 esac
 

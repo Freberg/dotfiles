@@ -7,7 +7,7 @@ function connect_vpn() {
     selected_vpn=$(action_menu "vpns" "$vpns")
     [ -z "$selected_vpn" ] && exit 0
     notify-send "vpn" "connecting to $selected_vpn"
-    wezterm start nmcli connection up "$selected_vpn" --ask
+    launch_terminal nmcli connection up "$selected_vpn" --ask
 }
 
 active_vpn=$(nmcli connection show --active | grep vpn | awk '{print $1}')
