@@ -1,3 +1,3 @@
-@import url("../css/gruvbox");
+@import url("../css/gruvbox_light");
 @define-color border @yellow;
 @define-color selection @background-darker;

@@ -1,4 +1,4 @@
-@import url("../css/gruvbox");
+@import url("../css/gruvbox_dark");
 
 @define-color background_color_1 @background;
 @define-color foreground_color_1 @foreground;
