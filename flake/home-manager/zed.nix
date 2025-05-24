@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    nodejs_23
     nixd
     jdt-language-server
     kotlin-language-server

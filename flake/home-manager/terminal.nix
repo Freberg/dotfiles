@@ -37,6 +37,6 @@
   
   programs.zsh = {
     enable = true;
-    initExtra = "source ~/.config/zsh/zshrc";
+    initContent = "source ~/.config/zsh/zshrc";
   };
 }
