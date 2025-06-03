@@ -20,6 +20,7 @@
           (defvar
             tap-time 200
             hold-time 200
+            chord-time 50
 
             left-hand-keys (
               q w e r t
@@ -36,7 +37,7 @@
           (deflayer base
             grv 1 2 3 4 5 6 7 8 9 0 - = bspc
             tab q w e r t y u i o p [ ]
-            @caps @a @s @d @f g h @j @k @l @; ' ret
+            @caps @a @s @c-d @c-f g h @c-j @c-k @l @; ' ret
             lsft lsgt z x c v b n m , . / rsft
             lctl lmet lalt spc @altgr-symbol-layer @rctl
           )
@@ -49,7 +50,7 @@
           )
           (deflayer symbols 
             RA-grv RA-1 RA-2 RA-3 RA-4 RA-5 RA-6 RA-7 RA-8 RA-9 RA-0 RA-- RA-= RA-bspc  
-            _ _ _ _ _ _ _ _ RA-lsgt _ _ _ _    
+            _ _ _ _ _ _ _ _ RA-lsgt _ _ _ RA-]    
             @caps RA-2 RA-4 S-8 S-9 S-7 RA-- RA-7 RA-0 RA-8 RA-9 _ _
             _ RA-lsgt _ _ _ _ _ _ _ _ _ _ _    
             _ _ _ _ _ _  
@@ -77,6 +78,21 @@
             k (tap-hold-release-keys $tap-time $hold-time (multi k @tap) rsft $right-hand-keys)
             l (tap-hold-release-keys $tap-time $hold-time (multi l @tap) lalt $right-hand-keys)
             ; (tap-hold-release-keys $tap-time $hold-time (multi ; @tap) rmet $right-hand-keys)
+
+            c-f (chord ret f)
+            c-j (chord ret j)
+            c-d (chord bspc d)
+            c-k (chord bspc k)
+          )
+          (defchords ret $chord-time
+            (f  ) @f
+            (  j) @j
+            (f j) ret
+          )
+          (defchords bspc $chord-time
+            (d  ) @d
+            (  k) @k
+            (d k) bspc
           )
         '';
       };

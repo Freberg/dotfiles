@@ -3,6 +3,8 @@ local statusline = require 'statusline'
 local config = wezterm.config_builder()
 local act = wezterm.action
 
+config.mux_enable_ssh_agent = false
+
 config.window_padding = {
   left = 0,
   right = 0,
