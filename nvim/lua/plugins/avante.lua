@@ -4,10 +4,14 @@ return {
   version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
   opts = {
     provider = "gemini",
-    gemini = { -- see https://ai.google.dev/api/generate-content#request-body_1
-      model = "gemini-2.0-flash",
-      generationConfig = {
-        stopSequences = { "test" },
+    providers = { -- see https://ai.google.dev/api/generate-content#request-body_1
+      gemini = {
+        model = "gemini-2.0-flash",
+        extra_request_body = {
+          generationConfig = {
+            stopSequences = { "test" },
+          }
+        }
       }
     }
   },

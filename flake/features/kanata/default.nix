@@ -10,6 +10,7 @@
         extraDefCfg = "process-unmapped-keys yes";
         config = ''
           (defsrc
+            esc
             grv 1 2 3 4 5 6 7 8 9 0 - = bspc
             tab q w e r t y u i o p [ ]
             caps a s d f g h j k l ; ' ret
@@ -35,6 +36,7 @@
           )
 
           (deflayer base
+            @esc
             grv 1 2 3 4 5 6 7 8 9 0 - = bspc
             tab q w e r t y u i o p [ ]
             @caps @a @s @c-d @c-f g h @c-j @c-k @l @; ' ret
@@ -42,6 +44,7 @@
             lctl lmet lalt spc @altgr-symbol-layer @rctl
           )
           (deflayer nomods
+            -
             _ _ _ _ _ _ _ _ _ _ _ _ _ _  
             _ _ _ _ _ _ _ _ _ _ _ _ _    
             _ a s d f _ _ j k l ; _ _
@@ -49,6 +52,7 @@
             _ _ _ _ _ _  
           )
           (deflayer symbols 
+            @esc
             RA-grv RA-1 RA-2 RA-3 RA-4 RA-5 RA-6 RA-7 RA-8 RA-9 RA-0 RA-- RA-= RA-bspc  
             _ _ _ _ _ _ _ _ RA-lsgt _ _ _ RA-]    
             @caps RA-2 RA-4 S-8 S-9 S-7 RA-- RA-7 RA-0 RA-8 RA-9 _ _
@@ -67,6 +71,7 @@
             )
 
             caps esc
+            esc caps
             rctl bspc
             altgr-symbol-layer (layer-while-held symbols)
 
