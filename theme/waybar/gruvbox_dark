@@ -20,3 +20,5 @@
 
 @define-color background_color_7 @background;
 @define-color foreground_color_7 @foreground;
+
+@define-color active @white;

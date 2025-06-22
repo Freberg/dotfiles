@@ -1,3 +1,5 @@
 export BAT_THEME=gruvbox-dark
 export NVIM_THEME=gruvbox_dark
 export WEZTERM_THEME='Gruvbox Dark (Gogh)'
+
+gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark

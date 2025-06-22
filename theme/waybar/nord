@@ -22,3 +22,4 @@
 @define-color foreground_color_7 @foreground;
 
 @define-color selection @blue;
+@define-color active @white;

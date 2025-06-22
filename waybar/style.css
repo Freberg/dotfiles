@@ -61,27 +61,22 @@ widget > * {
 }
 
 #workspaces button.visible {
-    color: @white;
-    background: @inactive;
+    color: @active;
 }
 
 #workspaces button.focused {
-    color: @selection;
-    background: @focused;
+    color: @foreground_color_1;
+    background: @background_color_1;
+}
+
+#workspaces button:hover {
+    background: @foreground_color_1;
+    color: @background_color_1;
 }
 
 #workspaces button.urgent {
     background: @background_color_5;
     color: @foreground_color_5;
-}
-
-#workspaces button:hover {
-    background: @selection;
-    color: @foreground;
-}
-
-#workspaces button.active {
-    background: @background;
 }
 
 #custom-separator_left_1 {

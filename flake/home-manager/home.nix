@@ -31,6 +31,23 @@
     fabric-ai
   ];
 
+  home.file.".themes/Gruvbox-Dark"= {
+    source = "${pkgs.gruvbox-gtk-theme}/share/themes/Gruvbox-Dark";
+    recursive = true;
+  };
+  home.file.".themes/Gruvbox-Light"= {
+    source = "${pkgs.gruvbox-gtk-theme}/share/themes/Gruvbox-Light";
+    recursive = true;
+  };
+  home.file.".themes/Nordic" = {
+    source = "${pkgs.nordic}/share/themes/Nordic";
+    recursive = true;
+  };
+  home.file.".themes/Dracula" = {
+    source = "${pkgs.dracula-theme}/share/themes/Dracula";
+    recursive = true;
+  };
+
   xdg.portal.config.common.default = "*";
   wayland.windowManager.hyprland.systemd.enable = false;
 

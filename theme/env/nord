@@ -1,3 +1,5 @@
 export BAT_THEME=Nord
 export NVIM_THEME=nord
 export WEZTERM_THEME=nord
+
+gsettings set org.gnome.desktop.interface gtk-theme Nordic

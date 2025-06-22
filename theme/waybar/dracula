@@ -1,7 +1,7 @@
 @import url("../css/dracula");
 
 @define-color background_color_1 @comment;
-@define-color foreground_color_1 @foreground;
+@define-color foreground_color_1 @background;
 
 @define-color background_color_2 @purple;
 @define-color foreground_color_2 @background;
@@ -20,3 +20,5 @@
 
 @define-color background_color_7 @comment;
 @define-color foreground_color_7 @foreground;
+
+@define-color active @foreground;

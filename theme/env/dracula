@@ -1,3 +1,5 @@
 export BAT_THEME=Dracula
 export NVIM_THEME=dracula
 export WEZTERM_THEME=Dracula
+
+gsettings set org.gnome.desktop.interface gtk-theme Dracula
