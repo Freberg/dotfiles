@@ -20,13 +20,14 @@
       Unit.Description = "service for antivirus-scan";
       Service = {
         Type = "oneshot";
+        CPULimit = "20%";
+        IOSchedulingClass = "idle";
         ExecStart = toString (
           pkgs.writeShellScript "anti-virus-script" ''
             PATH=$PATH:${
               lib.makeBinPath [
                 pkgs.coreutils
                 pkgs.libnotify
-                pkgs.cpulimit
                 pkgs.clamav
               ]
             }
