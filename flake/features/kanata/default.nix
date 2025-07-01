@@ -39,7 +39,7 @@
             @esc
             grv 1 2 3 4 5 6 7 8 9 0 - = bspc
             tab q w e r t y u i o p [ ]
-            @caps @a @s @c-d @c-f g h @c-j @c-k @l @; ' ret
+            @caps @a @c-s @c-d @c-f g h @c-j @c-k @c-l @; ' ret
             lsft lsgt z x c v b n m , . / rsft
             lctl lmet lalt spc @altgr-symbol-layer @rctl
           )
@@ -88,6 +88,8 @@
             c-j (chord ret j)
             c-d (chord bspc d)
             c-k (chord bspc k)
+            c-s (chord tab s)
+            c-l (chord tab l)
           )
           (defchords ret $chord-time
             (f  ) @f
@@ -98,6 +100,11 @@
             (d  ) @d
             (  k) @k
             (d k) bspc
+          )
+          (defchords tab $chord-time
+            (s  ) @s
+            (  l) @l
+            (s l) tab
           )
         '';
       };
