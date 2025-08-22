@@ -74,6 +74,4 @@ _fzf_complete_ps() {
 
 _fzf_complete_ps_post() {
     awk '{print $2}'
-}
-
-source ~/.config/zsh/fzf-git.sh
+} 
