@@ -1,6 +1,7 @@
 {
   username,
   pkgs,
+  pkgsUnstable,
   ...
 }:
 {
@@ -29,6 +30,9 @@
     chromium
     # ai
     fabric-ai
+    pkgsUnstable.gemini-cli
+    nodejs_24
+    uv
   ];
 
   home.file.".themes/Gruvbox-Dark"= {
