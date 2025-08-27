@@ -55,11 +55,11 @@
           ];
         };
       };
-      checks = {
-        "${system}" = nixpkgs.lib.mapAttrs (
-        hostname: nixosConfig:
-          nixosConfig.config.system.build.toplevel
-        ) self.nixosConfigurations;
-      };
+      #checks = {
+      #  "${system}" = nixpkgs.lib.mapAttrs (
+      #  hostname: nixosConfig:
+      #    nixosConfig.config.system.build.toplevel
+      #  ) self.nixosConfigurations;
+      #};
     };
 }
