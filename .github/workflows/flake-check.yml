@@ -5,13 +5,8 @@ on:
 
 jobs:
   build:
-    name: Build ${{ matrix.host }}
+    name: Check nix flake
     runs-on: ubuntu-22.04
-
-    strategy:
-      fail-fast: false
-      matrix:
-        host: [dellXps]
 
     steps:
       - uses: actions/checkout@v4
@@ -24,6 +19,6 @@ jobs:
       - name: Install nix
         uses: DeterminateSystems/nix-installer-action@main
 
-      - name: Build nix flake
+      - name: Check nix flake
         working-directory: flake/
-        run: nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
+        run: nix flake check -L
