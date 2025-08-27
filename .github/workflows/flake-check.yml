@@ -1,0 +1,28 @@
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build ${{ matrix.host }}
+    runs-on: ubuntu-22.04
+
+    strategy:
+      fail-fast: false
+      matrix:
+        host: [dellXps]
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check nix flake inputs
+        uses: DeterminateSystems/flake-checker-action@main
+        working-directory: flake/
+
+      - name: Install nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Build nix flake
+        working-directory: flake/
+        run: nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
