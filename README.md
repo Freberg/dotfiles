@@ -9,15 +9,14 @@ This repository contains my personal dotfiles, managed using Nix flakes for a re
 
 *   Nix Flake Powered: A fully reproducible development environment using Nix flakes and Home Manager.
 *   Declarative Configuration: All configurations are declaratively defined, making it easy to understand, modify, and replicate.
-*   Hyprland: Configuration for the Hyprland Wayland compositor.
+*   Hyprland: Configuration for the Hyprland Wayland compositor. [[docs/hyprland.md]](docs/hyprland.md)
 *   Neovim: Personalized Neovim setup for efficient code editing.
-*   Zsh: Custom Zsh configuration with plugins for an enhanced shell experience.
+*   Zsh: Custom Zsh configuration with plugins for an enhanced shell experience. [[docs/zsh.md]](docs/zsh.md)
 *   Wezterm: Terminal emulator configuration.
-*   Waybar/Wofi: Status bar and application launcher configurations.
+*   Waybar/Wofi: Status bar and application launcher configurations. [[docs/waybar.md]](docs/waybar.md)
+*   Theming: System-wide theme management. [[docs/theme.md]](docs/theme.md)
 *   Starship: Cross-shell prompt.
-*   Nushell: Modern shell configuration.
-
-## Installation and Usage
+*   Nushell: Modern shell configuration.## Installation and Usage
 
 This repository uses Nix flakes for managing the development environment. The configuration folders (e.g., `hypr/`, `zsh/`) are *not* currently part of the Nix build process. Instead, they are managed via symlinks created by the `install_dot_files.sh` script. Both methods should be used.
 
