@@ -7,8 +7,8 @@
 }:
 {
   home.packages = with pkgs; [
+    git
     vim
-    vscode
     act
     ansible
     pkgsUnstable.devpod

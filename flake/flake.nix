@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,6 +20,7 @@
       self,
       nixpkgs,
       nixpkgs-unstable,
+      nixos-wsl,
       home-manager,
       dagger,
     }@inputs:
@@ -50,7 +52,25 @@
                   dagger
                   ;
               };
-              home-manager.users.freberg = ./home-manager/home.nix;
+            }
+          ];
+        };
+        wsl = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit username inputs; };
+          modules = [
+            ./hosts/wsl
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+              inherit
+                system
+                username
+                pkgsUnstable
+                dagger;
+              };
             }
           ];
         };

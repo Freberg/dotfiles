@@ -6,23 +6,29 @@
 }:
 {
   imports = [
-    ./terminal.nix
     ./ui.nix
-    ./util.nix
     ./zed.nix
-    ./development.nix
-    ./java_development.nix
-    ./python_development.nix
-    ./kubernetes.nix
-    ./neovim.nix
     ./antivirus.nix
     ./email.nix
   ];
-  home.username = "${username}";
-  home.homeDirectory = "/home/${username}";
+  
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
+    # terminal emulators
+    kitty
+    alacritty
+    wezterm
+    gnome-terminal
+    # IDEs
+    jetbrains.idea-ultimate
+    jetbrains.pycharm-community
+    vscode
+    # utils
+    keepass
+    filezilla
+    libreoffice
+    gimp
     # fonts
     nerd-fonts.jetbrains-mono
     # browser
@@ -54,6 +60,4 @@
 
   xdg.portal.config.common.default = "*";
   wayland.windowManager.hyprland.systemd.enable = false;
-
-  home.stateVersion = "24.11";
 }

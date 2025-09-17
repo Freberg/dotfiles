@@ -5,11 +5,6 @@
 }:
 {
   home.packages = with pkgs; [
-    # terminal emulator
-    kitty
-    alacritty
-    wezterm
-    gnome-terminal
     # prompt
     starship
     # shell

@@ -19,7 +19,6 @@
     gradle
     jdk17
     pkgsUnstable.jetbrains.gateway
-    jetbrains.idea-ultimate
     #graalvm-ce
     java-language-server
     jdt-language-server
