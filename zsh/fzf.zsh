@@ -2,6 +2,8 @@ export ZSH_FZF_HISTORY_SEARCH_EVENT_NUMBERS=0
 export ZSH_FZF_HISTORY_SEARCH_DATES_IN_SEARCH=0
 export ZSH_FZF_HISTORY_SEARCH_REMOVE_DUPLICATES=1
 
+source ~/.config/zsh/fzf-kubectl.zsh
+
 show_file_or_dir_preview="~/.config/zsh/fzf-preview.sh {}"
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
 export FZF_ALT_C_OPTS="--preview '$show_file_or_dir_preview'"
@@ -16,6 +18,7 @@ _fzf_comprun() {
                             bat --color always --file-name pid.json" "$@" ;;
         docker)         fzf --preview "echo {} | awk '{print \$1}' | xargs docker inspect | \
                             bat --color always --file-name docker.json" "$@" ;;
+        kubectl)        fzf --preview "sh ~/.config/zsh/fzf-kubectl-preview.sh {}" "$@" ;;
         git)            fzf --preview "echo {} | awk '{print \$1}' | xargs git log --color=always" "$@" ;;
         glab)           fzf --preview "echo {} | awk '{print \$1}' | xargs glab mr view" "$@" ;;
         *)              fzf --preview "$show_file_or_dir_preview" "$@" ;;
