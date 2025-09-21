@@ -5,6 +5,10 @@
     inputs.nixos-wsl.nixosModules.default
   ];
 
+  nix.settings = {
+    extra-experimental-features = [ "nix-command" "flakes" ];
+  };
+
   wsl.enable = true;
   wsl.defaultUser = username;
   
