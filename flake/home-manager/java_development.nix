@@ -17,6 +17,7 @@
   home.packages = with pkgs; [
     maven
     gradle
+    mvnd
     jdk17
     pkgsUnstable.jetbrains.gateway
     #graalvm-ce

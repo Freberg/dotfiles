@@ -34,5 +34,5 @@ alias ns-bin="nix-shell ~/.config/nix-shell/bin-runner.nix"
 alias ns-mvn="nix-shell ~/.config/nix-shell/mvn-builder.nix"
 alias ns-py="nix-shell ~/.config/nix-shell/py.nix"
 
-# core utils
-alias tf="tail -f"
+# mics
+alias mvnd="mvnd -Dmvnd.java.home=$HOME/jdks/graalvm-ce"

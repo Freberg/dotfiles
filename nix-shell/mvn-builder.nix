@@ -4,6 +4,8 @@
     name = "maven-env";
     targetPkgs = pkgs: (with pkgs; [
         maven
+        mvnd
+        zsh
     ]);
-    runScript = "bash";
+    runScript = "zsh";
 }).env
