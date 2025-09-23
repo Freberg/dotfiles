@@ -7,5 +7,6 @@
     argocd
     kubernetes-helm
     kind
+    kubeseal
   ];
 }
