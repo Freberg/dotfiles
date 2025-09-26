@@ -44,7 +44,7 @@ _fzf_complete_docker_post() {
 
 _fzf_complete_git() {
     ARGS="$@"
-    if [[ $ARGS == 'git checkout'* || $ARGS == 'git diff'* ]]; then
+    if [[ $ARGS == 'git checkout'* || $ARGS == 'git diff'* || $ARGS == 'git branch'* || $ARGS == 'git switch'* || $ARGS == 'git rebase'* || $ARGS == 'git merge'* ]]; then  
         _fzf_complete "--multi " "$@" < <(
             git for-each-ref --sort=-committerdate refs/heads/ \
               --format='%(refname:short)|%(committerdate:short)|%(contents:subject)' | column -t -s '|'
