@@ -23,6 +23,7 @@
     # IDEs
     jetbrains.idea-ultimate
     jetbrains.pycharm-community
+    jetbrains.gateway
     vscode
     # utils
     keepass
@@ -34,11 +35,6 @@
     # browser
     firefox
     chromium
-    # ai
-    fabric-ai
-    pkgsUnstable.gemini-cli
-    nodejs_24
-    uv
   ];
 
   home.file.".themes/Gruvbox-Dark"= {

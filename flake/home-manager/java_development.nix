@@ -21,7 +21,6 @@
     gradle
     mvnd
     jdk17
-    pkgsUnstable.jetbrains.gateway
     #graalvm-ce
     java-language-server
     jdt-language-server

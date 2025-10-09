@@ -7,11 +7,12 @@
 }:
 {
   home.packages = with pkgs; [
-    git
-    vim
+    # ci
     act
     ansible
     pkgsUnstable.devpod
     dagger.packages.${system}.dagger
+    # misc tooling
+    nodejs_24
   ];
 }

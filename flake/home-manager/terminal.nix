@@ -5,6 +5,9 @@
 }:
 {
   home.packages = with pkgs; [
+    # essentials
+    git
+    vim
     # prompt
     starship
     # shell
@@ -28,6 +31,9 @@
     cliphist
     wl-clipboard
     sway-contrib.grimshot
+    # ai
+    fabric-ai
+    pkgsUnstable.gemini-cli
   ];
   
   programs.zsh = {
