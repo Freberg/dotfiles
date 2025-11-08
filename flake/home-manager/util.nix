@@ -6,5 +6,6 @@
     zip
     unzip
     thefuck
+    nvd
   ];
 }
