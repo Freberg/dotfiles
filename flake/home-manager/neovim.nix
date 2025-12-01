@@ -5,7 +5,7 @@
     ripgrep
     gnumake
     # lsps & formatters
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     docker-compose-language-service
     jdt-language-server
     lua-language-server

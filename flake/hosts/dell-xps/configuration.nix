@@ -14,6 +14,9 @@
 
   # networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.plugins = with pkgs; [
+    networkmanager-openvpn
+  ];
 
   services.openvpn.servers = { };
   programs.openvpn3.enable = true;

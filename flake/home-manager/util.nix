@@ -5,7 +5,7 @@
     rclone
     zip
     unzip
-    thefuck
+    pay-respects
     nvd
   ];
 }

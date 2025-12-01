@@ -4,7 +4,7 @@
   home.file."jdks/temurin17".source = pkgs.temurin-bin-17;
   home.file."jdks/temurin21".source = pkgs.temurin-bin-21;
   home.file."jdks/temurin25".source = pkgsUnstable.temurin-bin-25;
-  home.file."jdks/graalvm-ce".source = pkgs.graalvm-ce;
+  home.file."jdks/graalvm-ce".source = pkgs.graalvmPackages.graalvm-ce;
   home.file."jdks/jetbrains".source = pkgs.jetbrains.jdk;
 
   home.sessionVariables = {
