@@ -15,9 +15,9 @@ _fzf_comprun() {
         export|unset)   fzf --preview "eval 'echo \${}'" "$@" ;;
         ssh)            fzf --preview 'dig {}' "$@" ;;
         ps)             fzf --preview "echo {} | awk '{print \$2}' | xargs -I PID nu -c 'ps -l | where pid == PID | to json' | \
-                            bat --color always --file-name pid.json" "$@" ;;
+                            bat -pl json --color always" "$@" ;;
         docker)         fzf --preview "echo {} | awk '{print \$1}' | xargs docker inspect | \
-                            bat --color always --file-name docker.json" "$@" ;;
+                            bat -pl json --color always" "$@" ;;
         kubectl)        fzf --preview "sh ~/.config/zsh/fzf-kubectl-preview.sh {}" "$@" ;;
         git)            fzf --preview "echo {} | awk '{print \$1}' | xargs git log --color=always" "$@" ;;
         glab)           fzf --preview "echo {} | awk '{print \$1}' | xargs glab mr view" "$@" ;;

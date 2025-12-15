@@ -8,7 +8,7 @@ _fzf_complete_kubectl() {
         return
     fi
 
-    if [[ "$command" == "get" ]]; then
+    if [[ "$command" == "get" || "$command" == "describe" ]]; then
         if [[ -n ${words[3]} ]]; then
             resource_type=${words[3]}
             all_resource_names_and_aliases=$(kubectl api-resources --no-headers | awk '{print $1, $2}' | tr ',' ' ')
@@ -24,7 +24,7 @@ _fzf_complete_kubectl() {
             fi
         fi
         # Fallback for `kubectl get` (complete resource type)
-        _fzf_complete "--header-lines=1 --prompt=\"kubectl get > \"" "$@" < <(
+        _fzf_complete "--header-lines=1 --prompt=\"kubectl $command > \"" "$@" < <(
             kubectl api-resources
         )
         return
