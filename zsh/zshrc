@@ -8,6 +8,10 @@ source ~/.config/zsh/alias
 #test -r ~/.config/theme/dircolors/current && eval "$(dircolors ~/.config/theme/dircolors/current)"
 #test -r ~/.config/theme/env/current && source ~/.config/theme/env/current
 
+# man
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
+
 # fzf
 source ~/.config/zsh/fzf.zsh
 eval "$(fzf --zsh)"
