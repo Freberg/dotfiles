@@ -3,6 +3,8 @@ export ZSH_FZF_HISTORY_SEARCH_DATES_IN_SEARCH=0
 export ZSH_FZF_HISTORY_SEARCH_REMOVE_DUPLICATES=1
 
 source ~/.config/zsh/fzf-kubectl.zsh
+source ~/.config/zsh/fzf-gradle.zsh
+source ~/.config/zsh/fzf-maven.zsh
 
 show_file_or_dir_preview="~/.config/zsh/fzf-preview.sh {}"
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
@@ -12,16 +14,18 @@ _fzf_comprun() {
     local command=$1
     shift
     case "$command" in
-        export|unset)   fzf --preview "eval 'echo \${}'" "$@" ;;
-        ssh)            fzf --preview 'dig {}' "$@" ;;
-        ps)             fzf --preview "echo {} | awk '{print \$2}' | xargs -I PID nu -c 'ps -l | where pid == PID | to json' | \
-                            bat -pl json --color always" "$@" ;;
-        docker)         fzf --preview "echo {} | awk '{print \$1}' | xargs docker inspect | \
-                            bat -pl json --color always" "$@" ;;
-        kubectl)        fzf --preview "sh ~/.config/zsh/fzf-kubectl-preview.sh {}" "$@" ;;
-        git)            fzf --preview "echo {} | awk '{print \$1}' | xargs git log --color=always" "$@" ;;
-        glab)           fzf --preview "echo {} | awk '{print \$1}' | xargs glab mr view" "$@" ;;
-        *)              fzf --preview "$show_file_or_dir_preview" "$@" ;;
+        export|unset)   fzf "$@" --preview "eval 'echo \${}'";;
+        ssh)            fzf "$@" --preview 'dig {}' ;;
+        kill)           fzf "$@" --preview "echo {} | awk '{print \$2}' | xargs -I PID nu -c 'ps -l | where pid == PID \
+                            | to json' | bat -pl json --color always" ;;  
+        ps)             fzf "$@" --preview "echo {} | awk '{print \$2}' | xargs -I PID nu -c 'ps -l | where pid == PID \
+                            | to json' | bat -pl json --color always" ;;
+        docker)         fzf "$@" --preview "echo {} | awk '{print \$1}' | xargs docker inspect | \
+                            bat -pl json --color always" ;;
+        kubectl)        fzf "$@" --preview "sh ~/.config/zsh/fzf-kubectl-preview.sh {}" ;;
+        git)            fzf "$@" --preview "echo {} | awk '{print \$1}' | xargs git log --color=always" ;;
+        glab)           fzf "$@" --preview "echo {} | awk '{print \$1}' | xargs glab mr view" ;;
+        *)              fzf "$@" --preview "$show_file_or_dir_preview" ;;
     esac
 }
 
