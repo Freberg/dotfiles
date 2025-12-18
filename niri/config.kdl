@@ -1,0 +1,67 @@
+include "bindings.kdl"
+include "../theme/niri/current"
+
+spawn-at-startup "waybar"
+spawn-at-startup "hyprpaper"
+spawn-at-startup "dunst -conf ~/.config/theme/dunst/current"
+spawn-at-startup "wl-paste --type text --watch cliphist store"
+spawn-at-startup "wl-paste --type image --watch cliphist store"
+
+environment {
+    GDK_SCALE "1.5"
+}
+
+cursor {
+    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-size 16
+}
+
+input {
+    touchpad {
+        tap
+    }
+}
+
+output "eDP-1" {
+    mode "3840x2400@59.994"
+    scale 1.75
+    transform "normal"
+}
+
+prefer-no-csd
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+layout {
+    gaps 2
+    center-focused-column "never"
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width { 
+        proportion 0.5 
+    }
+
+    focus-ring {
+        off
+    }
+    border {
+        on
+        width 2
+    }
+}
+
+animations {
+    slowdown 0.7
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}

@@ -8,8 +8,10 @@
     "height": 0,
     "modules-left": [
         "hyprland/workspaces",
+        "niri/workspaces",
         "custom/separator_left_1",
         "hyprland/window",
+        "niri/window",
         "custom/separator_left_2"
     ],
     "modules-center": [],
@@ -33,6 +35,21 @@
         "on-click": "activate"
     },
     "hyprland/window": {
+        "format": "{}",
+        "rewrite": {
+            "Mozilla Firefox": " firefox",
+            "(.*) — Mozilla Firefox": " $1",
+            "(.*) - Chromium": " $1",
+            "(vim|nvim).*": " $0",
+            "docker.*": "󰡨 $0 $1",
+            "(lf|lfcd)": "󰙅 $0",
+            "(top|htop|bashtop)": "󱎴 $0",
+            "(bash|zsh)": " $0",
+            "Alacritty": " alacritty",
+            "intellij - (.*)": " $1"
+        }
+    },
+    "niri/window": {
         "format": "{}",
         "rewrite": {
             "Mozilla Firefox": " firefox",
