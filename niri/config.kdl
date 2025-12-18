@@ -3,9 +3,9 @@ include "../theme/niri/current"
 
 spawn-at-startup "waybar"
 spawn-at-startup "hyprpaper"
-spawn-at-startup "dunst -conf ~/.config/theme/dunst/current"
-spawn-at-startup "wl-paste --type text --watch cliphist store"
-spawn-at-startup "wl-paste --type image --watch cliphist store"
+spawn-at-startup "dunst" "-conf" "~/.config/theme/dunst/current"
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 
 environment {
     GDK_SCALE "1.5"
