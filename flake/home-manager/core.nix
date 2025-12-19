@@ -3,7 +3,6 @@
   imports = [
     ./terminal.nix
       ./neovim.nix
-      ./util.nix
       ./kubernetes.nix
       ./development.nix
       ./java_development.nix

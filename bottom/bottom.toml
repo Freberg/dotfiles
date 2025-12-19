@@ -1,0 +1,17 @@
+[flags]
+tree = true
+
+[[row]]
+  ratio = 2
+  [[row.child]]
+    type = "proc"
+    default = true
+
+[[row]]
+  ratio = 1
+  [[row.child]]
+    type = "cpu"
+  [[row.child]]
+    type = "mem"
+  [[row.child]]
+    type = "net"
