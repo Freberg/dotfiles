@@ -6,7 +6,7 @@
     # launcher
     wofi
     # wallpaper / lock screen
-    hyprpaper
+    swww
     hyprlock
     # notifications
     libnotify

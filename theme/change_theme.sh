@@ -20,8 +20,7 @@ change_theme "waybar"
 change_theme "wofi"
 
 killall -r -SIGUSR2 ".*waybar.*"
-killall -r ".*dunst.*"
-nohup dunst -conf "$HOME/.config/theme/dunst/current" >/dev/null 2>&1 &
-
-sed -i "s/wallpaper = .*/wallpaper = ,~\/.config\/wallpaper\/${theme}.png/g" ~/.config/hypr/hyprpaper.conf
-hyprctl monitors | grep 'Monitor' | awk '{ print $2 }' | xargs -I {} hyprctl hyprpaper wallpaper "{},~/.config/wallpaper/$theme.png"
+dunstctl reload
+swww img "$HOME/.config/wallpaper/current" \
+  --transition-type left \
+  --transition-duration 1
