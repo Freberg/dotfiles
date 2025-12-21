@@ -20,17 +20,9 @@ function M.apply_theme(config)
     file:close()
 
     local wez_theme = extract_var(content, "WEZTERM_THEME")
-    local bat_theme = extract_var(content, "BAT_THEME")
-    local nvim_theme = extract_var(content, "NVIM_THEME")
-
     if wez_theme then
       config.color_scheme = wez_theme
     end
-
-    config.set_environment_variables = config.set_environment_variables or {}
-    if wez_theme then config.set_environment_variables["WEZTERM_THEME"] = wez_theme end
-    if bat_theme then config.set_environment_variables["BAT_THEME"] = bat_theme end
-    if nvim_theme then config.set_environment_variables["NVIM_THEME"] = nvim_theme end
   end
 end
 
