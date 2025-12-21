@@ -1,5 +1,7 @@
 local wezterm = require 'wezterm'
 local statusline = require 'statusline'
+local theme_switcher = require 'theme_switcher'
+local copycommand = require 'copycommand'
 local config = wezterm.config_builder()
 local act = wezterm.action
 
@@ -25,6 +27,7 @@ config.font_size = 10.0
 config.font = wezterm.font 'JetBrainsMono Nerd Font'
 config.window_background_opacity = 0.85
 config.color_scheme = os.getenv('WEZTERM_THEME')
+theme_switcher.apply_theme(config)
 
 config.keys = {
   { key = 'r', mods = 'ALT', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
@@ -48,6 +51,8 @@ config.keys = {
   { key = 'l', mods = 'ALT', action = act.ActivatePaneDirection 'Right' },
   { key = 'k', mods = 'ALT', action = act.ActivatePaneDirection 'Up' },
   { key = 'j', mods = 'ALT', action = act.ActivatePaneDirection 'Down' },
+
+  { key = 'y', mods = 'ALT', action = act.EmitEvent 'copy-last-command-markdown' },
 }
 
 config.key_tables = {

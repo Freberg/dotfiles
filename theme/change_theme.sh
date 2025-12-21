@@ -24,3 +24,5 @@ dunstctl reload
 swww img "$HOME/.config/wallpaper/current" \
   --transition-type left \
   --transition-duration 1
+touch "$HOME/.config/wezterm/wezterm.lua"
+source "$HOME/.config/theme/env/current" && gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
