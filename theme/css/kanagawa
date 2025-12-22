@@ -1,0 +1,13 @@
+@define-color background-darker #16161D;
+@define-color background        #1F1F28;
+@define-color selection         #2D4F67;
+@define-color foreground        #DCD7BA;
+@define-color comment           #727169;
+
+@define-color cyan              #7AA89F;
+@define-color green             #76946A;
+@define-color orange            #FFA066;
+@define-color pink              #D27E99;
+@define-color purple            #957FB8;
+@define-color red               #C34043;
+@define-color yellow            #E6C384;

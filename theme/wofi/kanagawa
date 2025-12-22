@@ -1,0 +1,3 @@
+@import url("../css/kanagawa");
+@define-color border @yellow;
+@define-color selection @background-darker;

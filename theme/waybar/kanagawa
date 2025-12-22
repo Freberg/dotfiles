@@ -1,0 +1,24 @@
+@import url("../css/kanagawa");
+
+@define-color background_color_1 @background;
+@define-color foreground_color_1 @foreground;
+
+@define-color background_color_2 @cyan;
+@define-color foreground_color_2 @background;
+
+@define-color background_color_3 @green;
+@define-color foreground_color_3 @background;
+
+@define-color background_color_4 @pink;
+@define-color foreground_color_4 @background;
+
+@define-color background_color_5 @yellow;
+@define-color foreground_color_5 @background;
+
+@define-color background_color_6 @cyan;
+@define-color foreground_color_6 @background;
+
+@define-color background_color_7 @background;
+@define-color foreground_color_7 @foreground;
+
+@define-color active @white;

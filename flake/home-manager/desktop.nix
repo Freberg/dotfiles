@@ -45,6 +45,10 @@
     source = "${pkgs.gruvbox-gtk-theme}/share/themes/Gruvbox-Light";
     recursive = true;
   };
+  home.file.".themes/Kanagawa" = {
+    source = "${pkgs.kanagawa-gtk-theme}/share/themes/Kanagawa-BL-LB";
+    recursive = true;
+  };
   home.file.".themes/Nordic" = {
     source = "${pkgs.nordic}/share/themes/Nordic";
     recursive = true;
