@@ -37,6 +37,10 @@
     chromium
   ];
 
+  home.file.".themes/Everforest" = {
+    source = "${pkgs.everforest-gtk-theme}/share/themes/Everforest-Dark-BL-LB";
+    recursive = true;
+  };
   home.file.".themes/Gruvbox-Dark"= {
     source = "${pkgs.gruvbox-gtk-theme}/share/themes/Gruvbox-Dark";
     recursive = true;

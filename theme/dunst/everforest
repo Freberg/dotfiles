@@ -1,0 +1,15 @@
+[global]
+  background = "#2d353b"
+  foreground = "#d3c6aa"
+
+[urgency_low]
+  frame_color = "#a7c080"
+  timeout = 10
+
+[urgency_normal]
+  frame_color = "#83c092"
+  timeout = 10
+
+[urgency_critical]
+  frame_color = "#e67e80"
+  timeout = 0

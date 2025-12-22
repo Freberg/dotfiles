@@ -1,0 +1,4 @@
+export BAT_THEME=gruvbox-dark
+export NVIM_THEME=everforest
+export WEZTERM_THEME='Everforest Dark Hard (Gogh)'
+export GTK_THEME=Everforest
