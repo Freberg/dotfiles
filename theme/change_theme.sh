@@ -19,11 +19,28 @@ change_theme "wallpaper"
 change_theme "waybar"
 change_theme "wofi"
 
+unset IS_LIGHT_THEME
+source "$HOME/.config/theme/env/current"
+
 killall -r -SIGUSR2 ".*waybar.*"
-dunstctl reload
-swww img "$HOME/.config/wallpaper/current" \
-  --transition-type left \
-  --transition-duration 1
-touch "$HOME/.config/wezterm/wezterm.lua"
 killall -USR1 kitty .kitty-wrapped 2>/dev/null
-source "$HOME/.config/theme/env/current" && gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
+touch "$HOME/.config/wezterm/wezterm.lua"
+
+if command -v dunstctl >/dev/null 2>&1; then
+  dunstctl reload
+fi
+
+if command -v swww >/dev/null 2>&1; then
+  swww img "$HOME/.config/wallpaper/current" \
+    --transition-type left \
+    --transition-duration 1
+fi
+
+if command -v gsettings >/dev/null 2>&1; then
+  gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
+  if [ "$IS_LIGHT_THEME" == "true" ]; then
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+  else
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+  fi
+fi

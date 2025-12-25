@@ -2,3 +2,4 @@ export BAT_THEME=gruvbox-light
 export NVIM_THEME=gruvbox_light
 export WEZTERM_THEME='Gruvbox (Gogh)'
 export GTK_THEME=Gruvbox-Light
+export IS_LIGHT_THEME=true
