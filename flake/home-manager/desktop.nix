@@ -21,8 +21,8 @@
     wezterm
     gnome-terminal
     # IDEs
-    jetbrains.idea-ultimate
-    jetbrains.pycharm-community
+    jetbrains.idea
+    jetbrains.pycharm-oss
     jetbrains.gateway
     vscode
     # utils
