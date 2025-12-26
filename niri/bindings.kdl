@@ -1,9 +1,7 @@
 binds {
     // Window management
     Mod+C { close-window; }
-    Mod+V { toggle-window-floating; }
     Mod+T { fullscreen-window; } 
-    Mod+B { spawn "pkill" "-SIGUSR1" "'.*waybar.*'"; }
     Mod+TAB { toggle-overview; }
 
     // Move focus
@@ -58,7 +56,9 @@ binds {
     Mod+Q { spawn-sh "source ~/.config/theme/env/current && wezterm"; }
     Mod+R { spawn "wofi" "-i" "-n" "--show" "drun" "-W" "700" "-H" "500"; }
     Mod+S { spawn-sh "wofi -bdi -p 'search' -L 10 | xargs -I {} chromium --app='https://www.google.com/search?q={}'"; }
-    Mod+Shift+V { spawn-sh "cliphist list | wofi --dmenu -p 'cliphist' | cliphist decode | wl-copy && wtype -M ctrl -M shift v"; }
+    Mod+V { spawn-sh "cliphist list | wofi --dmenu -p 'cliphist' | cliphist decode | wl-copy && wtype -M ctrl -M shift v"; }
+    Mod+P { spawn-sh "grimshot copy area && notify-send 'Print Screen' 'Area copied to clipboard'"; }
+    Mod+O { spawn-sh "f=/tmp/ocr.png; grimshot save area $f && (tesseract $f - | wl-copy && notify-send 'OCR' 'Text copied to clipboard'); rm -f $f"; }
 
     // Media keys
     XF86AudioRaiseVolume { spawn "pamixer" "-u" "-i" "5"; }
@@ -66,8 +66,6 @@ binds {
     XF86AudioMute { spawn "pamixer" "-t"; }
     XF86MonBrightnessUp { spawn "light" "-A" "5"; }
     XF86MonBrightnessDown { spawn "light" "-U" "5"; }
-    Print { spawn "grimshot" "copy" "window"; }
-    Shift+Print { spawn "grimshot" "copy" "area"; }
 
     // Exit & Lock
     Mod+M { quit; } 
