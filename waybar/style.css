@@ -134,6 +134,7 @@ widget > * {
     background: @background_color_4;
 }
 
+#custom-nixos,
 #battery {
     background: @background_color_5;
     color: @foreground_color_5;

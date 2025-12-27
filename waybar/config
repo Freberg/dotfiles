@@ -25,6 +25,7 @@
         "pulseaudio#microphone",
         "custom/separator_right_3",
         "battery",
+        "custom/nixos",
         "custom/separator_right_4",
         "custom/vpn",
         "custom/network",
@@ -128,6 +129,12 @@
             "default": ["󱃍", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂁", "󰁹"]
         },
         "max-length": 25
+    },
+    "custom/nixos": {
+        "tooltip": true,
+        "return-type": "json",
+        "exec": "bash ~/.config/waybar/scripts/nixos_status.sh",
+        "interval": 60
     },
     "custom/vpn": {
         "tooltip": true,
