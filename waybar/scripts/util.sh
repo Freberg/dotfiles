@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 
 function action_menu() {
-    title="$1"
-    actions="$2"
-    height=$(($(echo -e "$actions" | wc -l) + 2))
-    width=$(($(echo -e "$actions" | wc -L) * 10))
+  local title="$1"
+  local actions="$2"
+  local result_tmp
+  result_tmp=$(mktemp)
 
-    selection="$(echo -e "$actions" | wofi -bdi -p "$title" -L $height -W $width -k /dev/null)"
-    echo "$selection"
+  kitten quick-access-terminal \
+    --instance-group="action_menu" \
+    sh -c "echo -e '$actions' | fzf --header='$title' --border > '$result_tmp'"
+
+  selection=$(cat "$result_tmp")
+  rm "$result_tmp"
+  echo "$selection"
 }
 
 function launch_terminal() {
@@ -16,5 +21,5 @@ function launch_terminal() {
 }
 
 function update_waybar() {
-    pkill -SIGRTMIN+8 waybar
+  pkill -SIGRTMIN+8 waybar
 }
