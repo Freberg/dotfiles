@@ -3,15 +3,19 @@
 function action_menu() {
   local title="$1"
   local actions="$2"
+  local input_tmp
   local result_tmp
   result_tmp=$(mktemp)
+  input_tmp=$(mktemp)
+
+  echo -e "$actions" > "$input_tmp"
 
   kitten quick-access-terminal \
     --instance-group="action_menu" \
-    sh -c "echo -e '$actions' | fzf --header='$title' --border > '$result_tmp'"
+    sh -c "fzf --header='$title' --border < '$input_tmp' > '$result_tmp'"
 
   selection=$(cat "$result_tmp")
-  rm "$result_tmp"
+  rm "$input_tmp" "$result_tmp"
   echo "$selection"
 }
 
