@@ -13,7 +13,7 @@ if ! systemctl --user list-timers | grep -q "$UNIT_NAME.timer"; then
     --setenv=PATH="/run/current-system/sw/bin:/etc/profiles/per-user/$USER/bin" \
     bash -c "
   BUILD=\$(nix build '$FLAKE_DIR#nixosConfigurations.$CONFIG_NAME.config.system.build.toplevel' \
-    --refresh \
+    --recreate-lock-file \
     --no-write-lock-file \
     --print-out-paths \
     --no-link) && \
@@ -26,8 +26,16 @@ if ! systemctl --user list-timers | grep -q "$UNIT_NAME.timer"; then
 fi
 
 if [ -f "$OUTPUT_FILE" ]; then
+  report_time=$(stat -c %Y "$OUTPUT_FILE")
+  system_time=$(stat -c %Y /run/current-system)
+  if [ "$system_time" -gt "$report_time" ]; then
+    rm "$OUTPUT_FILE"
+  fi
+fi
+
+if [ -f "$OUTPUT_FILE" ]; then
   count=$(grep -cE '^(\[|\+|-)' "$OUTPUT_FILE")
-  nix_tooltip=$(tail -n +3 "$OUTPUT_FILE" | tr '\n' '\r')
+  nix_tooltip=$(sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g' "$OUTPUT_FILE" | tr '\n' '\r')
 else
   count="0"
   nix_tooltip="No update data available. Run check script."
