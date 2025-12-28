@@ -10,21 +10,24 @@ if ! systemctl --user list-timers | grep -q "$UNIT_NAME.timer"; then
     --unit="$UNIT_NAME" \
     --on-calendar="12:00" \
     --description="Daily NixOS Update Check" \
-    bash -c "nix build '$FLAKE_DIR#nixosConfigurations.$CONFIG_NAME.config.system.build.toplevel' \
-      --refresh \
-      --no-write-lock-file \
-      --print-out-paths \
-      --no-link > /dev/null && \
-      nvd diff /run/current-system \$(nix build '$FLAKE_DIR#nixosConfigurations.$CONFIG_NAME.config.system.build.toplevel' \
-      --no-write-lock-file \
-      --print-out-paths \
-      --no-link) > $OUTPUT_FILE && \
-      notify-send 'NixOS' 'Update check complete'"
+    --setenv=PATH="/run/current-system/sw/bin:/etc/profiles/per-user/$USER/bin" \
+    bash -c "
+  BUILD=\$(nix build '$FLAKE_DIR#nixosConfigurations.$CONFIG_NAME.config.system.build.toplevel' \
+    --refresh \
+    --no-write-lock-file \
+    --print-out-paths \
+    --no-link) && \
+
+    nvd diff /run/current-system \"\$BUILD\" > '$OUTPUT_FILE' && \
+
+    { command -v notify-send >/dev/null && notify-send 'NixOS' 'Update check complete' || \
+      echo 'notify-send not found, skipping notification'; }
+    "
 fi
 
 if [ -f "$OUTPUT_FILE" ]; then
   count=$(grep -cE '^(\[|\+|-)' "$OUTPUT_FILE")
-  nix_tooltip=$(cat "$OUTPUT_FILE" | tail +3 | tr '\n' '\r')
+  nix_tooltip=$(tail -n +3 "$OUTPUT_FILE" | tr '\n' '\r')
 else
   count="0"
   nix_tooltip="No update data available. Run check script."
