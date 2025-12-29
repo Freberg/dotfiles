@@ -3,19 +3,25 @@
 function action_menu() {
   local title="$1"
   local actions="$2"
-  local input_tmp
-  local result_tmp
-  result_tmp=$(mktemp)
-  input_tmp=$(mktemp)
+  if [ -t 0 ]; then
+    notify-send "util" "in terminal"
+    selection=$(echo -e "$actions" | fzf --header="$title" --border)
+  else
+    notify-send "util" "in UI"
+    local input_tmp
+    local result_tmp
+    result_tmp=$(mktemp)
+    input_tmp=$(mktemp)
 
-  echo -e "$actions" > "$input_tmp"
+    echo -e "$actions" > "$input_tmp"
 
-  kitten quick-access-terminal \
-    --instance-group="action_menu" \
-    sh -c "fzf --header='$title' --border < '$input_tmp' > '$result_tmp'"
+    kitten quick-access-terminal \
+      --instance-group="action_menu" \
+      sh -c "fzf --header='$title' --border < '$input_tmp' > '$result_tmp'"
 
-  selection=$(cat "$result_tmp")
-  rm "$input_tmp" "$result_tmp"
+    selection=$(cat "$result_tmp")
+    rm "$input_tmp" "$result_tmp"
+  fi
   echo "$selection"
 }
 
