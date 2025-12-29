@@ -17,9 +17,7 @@
   home.packages = with pkgs; [
     # terminal emulators
     kitty
-    alacritty
     wezterm
-    gnome-terminal
     # IDEs
     jetbrains.idea
     jetbrains.pycharm-oss
