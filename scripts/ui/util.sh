@@ -4,10 +4,8 @@ function action_menu() {
   local title="$1"
   local actions="$2"
   if [ -t 0 ]; then
-    notify-send "util" "in terminal"
     selection=$(echo -e "$actions" | fzf --header="$title" --border)
   else
-    notify-send "util" "in UI"
     local input_tmp
     local result_tmp
     result_tmp=$(mktemp)
