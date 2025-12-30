@@ -10,4 +10,6 @@
     ../features/niri/default.nix
     ../features/kanata/default.nix
   ];
+
+  services.displayManager.defaultSession = "niri";
 }

@@ -1,11 +1,6 @@
 { username, pkgs, lib, ... }:
 
 {
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  
   # bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -20,23 +15,6 @@
 
   services.openvpn.servers = { };
   programs.openvpn3.enable = true;
-
-  # time zone.
-  time.timeZone = "Europe/Stockholm";
-
-  # internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "sv_SE.UTF-8";
-    LC_IDENTIFICATION = "sv_SE.UTF-8";
-    LC_MEASUREMENT = "sv_SE.UTF-8";
-    LC_MONETARY = "sv_SE.UTF-8";
-    LC_NAME = "sv_SE.UTF-8";
-    LC_NUMERIC = "sv_SE.UTF-8";
-    LC_PAPER = "sv_SE.UTF-8";
-    LC_TELEPHONE = "sv_SE.UTF-8";
-    LC_TIME = "sv_SE.UTF-8";
-  };
 
   # configure keymap in X11
   services.xserver = {
@@ -61,8 +39,6 @@
       wlr.enable = true;
     };
   };
-
-  services.displayManager.defaultSession = "hyprland-uwsm";
 
   # compositor and shell
   programs = {
@@ -124,5 +100,5 @@
     enableSSHSupport = true;
   };
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "24.11";
 }
