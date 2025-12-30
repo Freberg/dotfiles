@@ -60,13 +60,9 @@ widget > * {
     color: @foreground_color_1;
 }
 
+#workspaces button.focused,
 #workspaces button.visible {
     color: @active;
-}
-
-#workspaces button.focused {
-    color: @foreground_color_1;
-    background: @background_color_1;
 }
 
 #workspaces button:hover {
