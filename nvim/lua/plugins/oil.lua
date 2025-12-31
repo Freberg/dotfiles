@@ -15,14 +15,7 @@ return {
       }
     }
 
-    vim.keymap.set("n", "-", function()
-      if vim.w.is_oil_win then
-        require('oil').close()
-      else
-        require('oil').open(nil, { preview = {} })
-      end
-    end, { desc = "Toggle file explorer" })
-
+    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
     vim.keymap.set('n', '<leader>-', function()
       if vim.w.is_oil_win then
         require('oil').close()
@@ -31,5 +24,13 @@ return {
       end
     end, { desc = 'Toggle float file exlorer', silent = true })
 
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "OilEnter",
+      callback = function()
+        if vim.b.oil_preview_opened then return end
+        require("oil").open_preview()
+        vim.b.oil_preview_opened = true
+      end,
+    })
   end
 }

@@ -1,6 +1,5 @@
-{
-  ...
-}:
+{ pkgs, ... }:
+
 {
   imports = [
     ./common.nix
@@ -12,4 +11,16 @@
   ];
 
   services.displayManager.defaultSession = "niri";
+
+  xdg.portal = {
+    enable = true;
+    config = {
+      common = {
+        "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+      };
+    };
+    extraPortals = [
+      pkgs.xdg-desktop-portal-termfilechooser
+    ];
+  };
 }

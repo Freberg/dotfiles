@@ -23,16 +23,29 @@ vim.g.maplocalleader = "\\"
 
 if vim.env.NVIM_THEME == nil then vim.env.NVIM_THEME = "nord" end
 
--- Setup lazy.nvim
-require("lazy").setup({
-  spec = {
-    -- import your plugins
+-- Check nvim mode
+local is_file_chooser = vim.env.NVIM_FILE_CHOOSER == "1"
+local plugin_spec = {}
+if is_file_chooser then
+  plugin_spec = {
+    { import = "plugins/themes/" .. vim.env.NVIM_THEME },
+    { import = "plugins.oil" },
+  }
+else
+  plugin_spec = {
     { import = "plugins/themes/" .. vim.env.NVIM_THEME },
     { import = "plugins" },
-  },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  -- install = { colorscheme = { "nord" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
+  }
+end
+
+-- Setup lazy.nvim
+require("lazy").setup({
+  spec = plugin_spec,
+  checker = { enabled = not is_file_chooser },
+  change_detection = { enabled = not is_file_chooser },
+  ui = { enabled = not is_file_chooser },
 })
+
+if is_file_chooser then
+    require("file-chooser")
+end
