@@ -42,7 +42,6 @@
     wtype
     cliphist
     wl-clipboard
-    sway-contrib.grimshot
     tesseract
     # correct typos / mistakes
     pay-respects

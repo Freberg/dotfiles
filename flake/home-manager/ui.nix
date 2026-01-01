@@ -11,6 +11,9 @@
     # notifications
     libnotify
     dunst
+    # screenshot
+    sway-contrib.grimshot
+    satty
   ];
 
   home.pointerCursor =
