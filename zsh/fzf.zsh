@@ -5,6 +5,7 @@ export ZSH_FZF_HISTORY_SEARCH_REMOVE_DUPLICATES=1
 source ~/.config/zsh/fzf-kubectl.zsh
 source ~/.config/zsh/fzf-gradle.zsh
 source ~/.config/zsh/fzf-maven.zsh
+source ~/.config/zsh/fzf-systemd.zsh
 
 show_file_or_dir_preview="~/.config/zsh/fzf-preview.sh {}"
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
@@ -25,6 +26,8 @@ _fzf_comprun() {
         kubectl)        fzf "$@" --preview "sh ~/.config/zsh/fzf-kubectl-preview.sh {}" ;;
         git)            fzf "$@" --preview "echo {} | awk '{print \$1}' | xargs git log --color=always" ;;
         glab)           fzf "$@" --preview "echo {} | awk '{print \$1}' | xargs glab mr view" ;;
+        systemctl|\
+          journalctl)   fzf "$@" --preview "sh ~/.config/zsh/fzf-systemd-preview.sh {}" ;;
         *)              fzf "$@" --preview "$show_file_or_dir_preview" ;;
     esac
 }
