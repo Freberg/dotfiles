@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./configuration.nix
+    ./nvidia.nix
     ../laptop_common.nix
   ];
   
