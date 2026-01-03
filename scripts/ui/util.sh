@@ -28,6 +28,13 @@ function launch_terminal() {
   wezterm start "$@"
 }
 
+function launch_temp_terminal() {
+  source "$HOME/.config/theme/env/current"
+  kitten quick-access-terminal \
+    --instance-group="temp" \
+    "$@"
+  }
+
 function update_waybar() {
   pkill -SIGRTMIN+8 waybar
 }
