@@ -23,4 +23,8 @@
       pkgs.xdg-desktop-portal-termfilechooser
     ];
   };
+
+  environment.sessionVariables = {
+    GTK_USE_PORTAL = "1";
+  };
 }

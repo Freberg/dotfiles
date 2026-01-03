@@ -32,5 +32,21 @@ return {
     keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Fuzzy find buffers" })
     keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+    keymap.set("n", "<leader>fd", function()
+      require("telescope.builtin").find_files({
+        prompt_title = "Find Directories",
+        find_command = { "fd", "--type", "d", "--exclude", ".git" },
+        attach_mappings = function(prompt_bufnr, _)
+          local action_state = require("telescope.actions.state")
+          actions.select_default:replace(function()
+            local selection = action_state.get_selected_entry()
+            actions.close(prompt_bufnr)
+            local dir = selection.path or selection[1]
+            require("oil").open(dir)
+          end)
+          return true
+        end,
+      })
+    end, { desc = "Fuzzy find directories" })
   end
 }

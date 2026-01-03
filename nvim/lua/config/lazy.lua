@@ -30,6 +30,7 @@ if is_file_chooser then
   plugin_spec = {
     { import = "plugins/themes/" .. vim.env.NVIM_THEME },
     { import = "plugins.oil" },
+    { import = "plugins.telescope" },
   }
 else
   plugin_spec = {

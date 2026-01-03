@@ -23,6 +23,7 @@
     lazygit
     lazydocker
     pkgsUnstable.fzf
+    fd
     delta
     glab
     gh
@@ -47,7 +48,7 @@
     pay-respects
     # ai
     fabric-ai
-    pkgsUnstable.gemini-cli
+    gemini-cli
   ];
   
   programs.zsh = {
