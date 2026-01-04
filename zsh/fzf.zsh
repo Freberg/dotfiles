@@ -19,8 +19,7 @@ _fzf_comprun() {
         ssh)            fzf "$@" --preview 'dig {}' ;;
         kill)           fzf "$@" --preview "echo {} | awk '{print \$2}' | xargs -I PID nu -c 'ps -l | where pid == PID \
                             | to json' | bat -pl json --color always" ;;  
-        ps)             fzf "$@" --preview "echo {} | awk '{print \$2}' | xargs -I PID nu -c 'ps -l | where pid == PID \
-                            | to json' | bat -pl json --color always" ;;
+        ps)             fzf "$@" --preview "echo {} | awk '{print \$2}' | xargs -I PID witr --pid PID" ;;
         docker)         fzf "$@" --preview "echo {} | awk '{print \$1}' | xargs docker inspect | \
                             bat -pl json --color always" ;;
         kubectl)        fzf "$@" --preview "sh ~/.config/zsh/fzf-kubectl-preview.sh {}" ;;

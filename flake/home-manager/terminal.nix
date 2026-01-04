@@ -15,6 +15,7 @@
     nushell
     # monitoring
     bottom
+    pkgsUnstable.witr
     # networking
     dig
     # nix
