@@ -3,8 +3,6 @@
   home.packages = with pkgs; [
     # status bar
     pkgsUnstable.waybar
-    # launcher
-    wofi
     # wallpaper / lock screen
     swww
     hyprlock

@@ -17,7 +17,6 @@ change_theme "hypr"
 change_theme "kitty"
 change_theme "wallpaper"
 change_theme "waybar"
-change_theme "wofi"
 
 unset IS_LIGHT_THEME
 source "$HOME/.config/theme/env/current"

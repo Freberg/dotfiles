@@ -1,2 +1,0 @@
-@import url("../css/dracula");
-@define-color border @purple;

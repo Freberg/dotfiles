@@ -1,3 +1,0 @@
-@import url("../css/gruvbox_dark");
-@define-color border @yellow;
-@define-color selection @background-darker;

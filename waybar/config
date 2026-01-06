@@ -46,7 +46,6 @@
             "(lf|lfcd)": "󰙅 $0",
             "(top|htop|bashtop)": "󱎴 $0",
             "(bash|zsh)": " $0",
-            "Alacritty": " alacritty",
             "intellij - (.*)": " $1"
         }
     },
@@ -61,7 +60,6 @@
             "(lf|lfcd)": "󰙅 $0",
             "(top|htop|bashtop)": "󱎴 $0",
             "(bash|zsh)": " $0",
-            "Alacritty": " alacritty",
             "intellij - (.*)": " $1"
         }
     },
