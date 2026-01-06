@@ -19,6 +19,9 @@ eval "$(fzf --zsh)"
 # pay-respects
 eval "$(pay-respects zsh --alias)"
 
+# zoxide
+eval "$(zoxide init zsh)"
+
 # prompt
 [ $TERM != "linux" ] && export STARSHIP_CONFIG=~/.config/starship/starship.toml && eval "$(starship init zsh)"
 

@@ -14,9 +14,6 @@ shell = "zsh"
 
 [plugins]
 
-[plugins.z]
-github = "agkozak/zsh-z"
-
 [plugins.autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 

@@ -36,6 +36,7 @@
     eza
     file
     chafa
+    zoxide
     # file management
     rclone
     zip
