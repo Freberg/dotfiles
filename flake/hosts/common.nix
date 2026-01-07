@@ -1,4 +1,5 @@
 {
+  lib,
   ...
 }:
 {
@@ -12,6 +13,22 @@
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    # nvidia drivers
+    "nvidia-x11"
+    "nvidia-settings"
+    # intellij
+    "idea"
+    "gateway"
+    # vscode
+    "vscode"
+    # cuda
+    "cuda_cudart"
+    "cuda_nvcc"
+    "cuda_cccl"
+    "libcublas"
+  ];
 
   time.timeZone = "Europe/Stockholm";
 

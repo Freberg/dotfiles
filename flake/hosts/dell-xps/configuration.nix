@@ -63,9 +63,6 @@
     shell = pkgs.zsh;
   };
 
-  # allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # packages
   environment.systemPackages = with pkgs; [
     ecryptfs

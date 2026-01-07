@@ -1,7 +1,8 @@
-{ pkgs, pkgsUnstable, ... }:
+{ ... }:
 {
   imports = [
-    ./terminal.nix
+    ./ai.nix
+      ./terminal.nix
       ./neovim.nix
       ./kubernetes.nix
       ./development.nix
