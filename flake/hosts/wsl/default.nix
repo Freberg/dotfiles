@@ -3,19 +3,19 @@
 {
   imports = [
     inputs.nixos-wsl.nixosModules.default
+    ../common.nix
   ];
-
-  nix.settings = {
-    extra-experimental-features = [ "nix-command" "flakes" ];
-  };
 
   wsl.enable = true;
   wsl.defaultUser = username;
+  wsl.useWindowsDriver = true;
   
   networking.hostName = "wsl";
 
   programs.nix-ld.enable = true;
   programs.nix-ld.package = pkgs.nix-ld;
+
+  services.dbus.enable = true;
   
   users.users.${username} = {
     isNormalUser = true;
