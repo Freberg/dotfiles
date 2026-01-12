@@ -35,6 +35,7 @@
     bat
     eza
     file
+    lsof
     chafa
     zoxide
     # file management
