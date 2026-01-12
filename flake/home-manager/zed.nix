@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgsUnstable, ... }:
 {
   home.packages = with pkgs; [
     nixd
@@ -8,6 +8,7 @@
   ];
   programs.zed-editor = {
     enable = true;
+    package = pkgsUnstable.zed-editor;
     extensions = [
       "nord"
       "dockerfile"
