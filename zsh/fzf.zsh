@@ -77,7 +77,7 @@ _fzf_complete_glab_post() {
 
 _fzf_complete_ps() {
     _fzf_complete "--multi --header-lines=1 " "$@" < <(
-        ps -ef
+        ps -ef --sort -time
     )
 }
 
