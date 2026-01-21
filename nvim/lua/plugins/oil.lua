@@ -6,6 +6,10 @@ return {
   config = function()
     vim.opt.splitright = true
     require("oil").setup {
+      win_options = {
+        -- required for oil-git-status
+        signcolumn = "yes:2",
+      },
       view_options = {
         show_hidden = true,
       },
