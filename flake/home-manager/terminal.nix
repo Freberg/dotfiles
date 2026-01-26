@@ -28,6 +28,14 @@
     delta
     glab
     gh
+    # database tools
+    (pkgsUnstable.sqlit-tui.overridePythonAttrs (oldAttrs: {
+      dependencies = (oldAttrs.dependencies or [ ]) ++ (with pkgsUnstable.python3Packages; [
+        psycopg2-binary
+        pymysql
+        oracledb
+      ]);
+    }))
     # data manipulation
     jq
     yq-go
