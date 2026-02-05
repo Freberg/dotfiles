@@ -1,8 +1,8 @@
-{ config, pkgs, username, inputs, ... }:
+{ pkgs, username, wsl-module, ... }:
 
 {
   imports = [
-    inputs.nixos-wsl.nixosModules.default
+    wsl-module
     ../common.nix
   ];
 

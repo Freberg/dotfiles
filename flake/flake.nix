@@ -17,70 +17,45 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       nixpkgs-unstable,
       nixos-wsl,
       home-manager,
       dagger,
-    }@inputs:
+      ...
+    }:
     let
       username = "freberg";
-      system = "x86_64-linux";
-      pkgsUnstable = import nixpkgs-unstable {
-        inherit system;
-        config = {
-          allowUnfree = true;
-        };
+      mkUnstable = system: import nixpkgs-unstable {
+        localSystem = { inherit system; };
       };
+      sharedModules = system: [
+        { nixpkgs.hostPlatform = system; }
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {
+            inherit username dagger;
+            pkgsUnstable = mkUnstable system;
+          };
+        }
+      ];
     in
     {
       nixosConfigurations = {
         dellXps = nixpkgs.lib.nixosSystem {
-          inherit system;
           specialArgs = { inherit username; };
-          modules = [
-            ./hosts/dell-xps
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit
-                  system
-                  username
-                  pkgsUnstable
-                  dagger
-                  ;
-              };
-            }
-          ];
+          modules = [ ./hosts/dell-xps ] ++ (sharedModules "x86_64-linux");
         };
+
         wsl = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit username inputs; };
-          modules = [
-            ./hosts/wsl
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-              inherit
-                system
-                username
-                pkgsUnstable
-                dagger;
-              };
-            }
-          ];
+          specialArgs = { 
+            inherit username; 
+            wsl-module = nixos-wsl.nixosModules.default;
+          };
+          modules = [ ./hosts/wsl ] ++ (sharedModules "x86_64-linux");
         };
       };
-      #checks = {
-      #  "${system}" = nixpkgs.lib.mapAttrs (
-      #  hostname: nixosConfig:
-      #    nixosConfig.config.system.build.toplevel
-      #  ) self.nixosConfigurations;
-      #};
     };
 }
