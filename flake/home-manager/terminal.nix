@@ -60,6 +60,9 @@
     # ai
     fabric-ai
     gemini-cli
+    # news
+    newsboat
+    sqlite
   ];
   
   programs.zsh = {
