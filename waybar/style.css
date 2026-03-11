@@ -20,7 +20,9 @@
 }
 
 #waybar {
-    background: @background;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    box-shadow: none;
     color: @foreground;
     border: solid;
     border-color: @selection;
@@ -90,13 +92,25 @@ widget > * {
 #custom-separator_left_2 {
     font-size: 11pt;
     color: @background_color_2;
-    background: transparent;
+    background: @background;
+}
+
+#custom-separator_left_end {
+    font-size: 11pt;
+    color: @foreground;
+    background: @background;
+}
+
+#custom-separator_right_start {
+    font-size: 11pt;
+    color: @foreground;
+    background: @background;
 }
 
 #custom-separator_right_1 {
     font-size: 11pt;
     color: @background_color_3;
-    background: transparent;
+    background: @background;
 }
 
 #custom-devpod {

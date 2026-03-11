@@ -7,15 +7,19 @@
     "gtk-layer-shell": true,
     "height": 0,
     "modules-left": [
+        "custom/news_ticker_launcher",
         "hyprland/workspaces",
         "niri/workspaces",
         "custom/separator_left_1",
         "hyprland/window",
         "niri/window",
-        "custom/separator_left_2"
+        "custom/separator_left_2",
+        "custom/separator_left_end"
     ],
-    "modules-center": [],
+    "modules-center": [
+    ],
     "modules-right": [
+        "custom/separator_right_start",
         "tray",
         "custom/separator_right_1",
         "custom/devpod",
@@ -32,6 +36,10 @@
         "custom/separator_right_5",
         "clock"
     ],
+    "custom/news_ticker_launcher": {
+        "format": "{}",
+        "exec": "~/.config/scripts/ui/news_ticker_panel.sh"
+    },
     "hyprland/workspaces": {
         "on-click": "activate"
     },
@@ -125,8 +133,7 @@
         "format-icons": {
             "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
             "default": ["󱃍", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂁", "󰁹"]
-        },
-        "max-length": 25
+        }
     },
     "custom/nixos": {
         "tooltip": true,
@@ -162,6 +169,14 @@
     "custom/separator_left_2": {
         "format": "",
         "tooltip": false
+    },
+    "custom/separator_left_end": {
+        "format": "  ",
+        "tooltip": false
+    },
+    "custom/separator_right_start": {
+        "format": "  ",
+       "tooltip": false
     },
     "custom/separator_right_1": {
         "format": "",
