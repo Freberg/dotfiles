@@ -28,6 +28,11 @@ output "eDP-1" {
     transform "normal"
 }
 
+output "LG Electronics 34GN850 004NTUW70814" {
+    mode "3440x1440@60.001"
+    position x=0 y=0
+}
+
 prefer-no-csd
 
 hotkey-overlay {
