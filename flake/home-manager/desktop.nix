@@ -59,6 +59,13 @@
     source = "${pkgs.dracula-theme}/share/themes/Dracula";
     recursive = true;
   };
+  home.file.".themes/Tokyonight" = {
+    source = "${(pkgs.tokyonight-gtk-theme.override {
+      tweakVariants = [ "moon" ];
+      colorVariants = [ "dark" ];
+    })}/share/themes/Tokyonight-Dark-Moon";
+    recursive = true;
+  };
 
   xdg.portal.config.common.default = "*";
   wayland.windowManager.hyprland.systemd.enable = false;

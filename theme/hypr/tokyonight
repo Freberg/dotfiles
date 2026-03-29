@@ -1,0 +1,4 @@
+general {
+    col.active_border = rgb(fca7ea) rgb(82aaff)
+    col.inactive_border = rgba(444a73aa)
+}

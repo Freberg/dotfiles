@@ -1,0 +1,6 @@
+layout {
+    border {
+        active-gradient from="#fca7ea" to="#82aaff"
+        inactive-color "#444a73AA"
+    }
+}
