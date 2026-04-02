@@ -31,11 +31,11 @@
         inherit system;
       };
 
-      mkNixosSystem = { system, hostname, extraModules ? [ ] }:
+      mkNixosSystem = { system, hostname, extraSpecialArgs ? { } }:
         let pkgsUnstable = mkUnstable system;
         in nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit username pkgsUnstable; };
+          specialArgs = { inherit username pkgsUnstable; } // extraSpecialArgs;
           modules = [
             ./hosts/${hostname}
             home-manager.nixosModules.home-manager
@@ -44,7 +44,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit username dagger pkgsUnstable; };
             }
-          ] ++ extraModules;
+          ];
         };
     in
     {
@@ -57,7 +57,9 @@
         wsl = mkNixosSystem {
           system = "x86_64-linux";
           hostname = "wsl";
-          extraModules = [ nixos-wsl.nixosModules.default ];
+          extraSpecialArgs = {
+            wsl-module = nixos-wsl.nixosModules.default;
+          };
         };
       };
     };
