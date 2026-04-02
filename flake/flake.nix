@@ -26,35 +26,38 @@
     }:
     let
       username = "freberg";
+
       mkUnstable = system: import nixpkgs-unstable {
-        localSystem = { inherit system; };
+        inherit system;
       };
-      sharedModules = system: [
-        { nixpkgs.hostPlatform = system; }
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {
-            inherit username dagger;
-            pkgsUnstable = mkUnstable system;
-          };
-        }
-      ];
+
+      mkNixosSystem = { system, hostname, extraModules ? [ ] }:
+        let pkgsUnstable = mkUnstable system;
+        in nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit username pkgsUnstable; };
+          modules = [
+            ./hosts/${hostname}
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit username dagger pkgsUnstable; };
+            }
+          ] ++ extraModules;
+        };
     in
     {
       nixosConfigurations = {
-        dellXps = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit username; };
-          modules = [ ./hosts/dell-xps ] ++ (sharedModules "x86_64-linux");
+        dellXps = mkNixosSystem {
+          system = "x86_64-linux";
+          hostname = "dell-xps";
         };
 
-        wsl = nixpkgs.lib.nixosSystem {
-          specialArgs = { 
-            inherit username; 
-            wsl-module = nixos-wsl.nixosModules.default;
-          };
-          modules = [ ./hosts/wsl ] ++ (sharedModules "x86_64-linux");
+        wsl = mkNixosSystem {
+          system = "x86_64-linux";
+          hostname = "wsl";
+          extraModules = [ nixos-wsl.nixosModules.default ];
         };
       };
     };
