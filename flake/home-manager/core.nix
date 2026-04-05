@@ -1,7 +1,8 @@
 { ... }:
 {
   imports = [
-    ./ai.nix
+    ./themes
+      ./ai.nix
       ./terminal.nix
       ./neovim.nix
       ./kubernetes.nix

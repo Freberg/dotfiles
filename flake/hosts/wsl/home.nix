@@ -2,7 +2,7 @@
 
 { 
   imports = [
-    ../../home-manager/core.nix
+    ../../home-manager
   ];
   
   home.stateVersion = "25.05";

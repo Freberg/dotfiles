@@ -35,38 +35,6 @@
     chromium
   ];
 
-  home.file.".themes/Everforest" = {
-    source = "${pkgs.everforest-gtk-theme}/share/themes/Everforest-Dark-BL-LB";
-    recursive = true;
-  };
-  home.file.".themes/Gruvbox-Dark"= {
-    source = "${pkgs.gruvbox-gtk-theme}/share/themes/Gruvbox-Dark";
-    recursive = true;
-  };
-  home.file.".themes/Gruvbox-Light"= {
-    source = "${pkgs.gruvbox-gtk-theme}/share/themes/Gruvbox-Light";
-    recursive = true;
-  };
-  home.file.".themes/Kanagawa" = {
-    source = "${pkgs.kanagawa-gtk-theme}/share/themes/Kanagawa-BL-LB";
-    recursive = true;
-  };
-  home.file.".themes/Nordic" = {
-    source = "${pkgs.nordic}/share/themes/Nordic";
-    recursive = true;
-  };
-  home.file.".themes/Dracula" = {
-    source = "${pkgs.dracula-theme}/share/themes/Dracula";
-    recursive = true;
-  };
-  home.file.".themes/Tokyonight" = {
-    source = "${(pkgs.tokyonight-gtk-theme.override {
-      tweakVariants = [ "moon" ];
-      colorVariants = [ "dark" ];
-    })}/share/themes/Tokyonight-Dark-Moon";
-    recursive = true;
-  };
-
   xdg.portal.config.common.default = "*";
   wayland.windowManager.hyprland.systemd.enable = false;
 }

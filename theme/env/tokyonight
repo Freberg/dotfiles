@@ -1,4 +1,4 @@
-export BAT_THEME="OneHalfDark"
+export BAT_THEME="tokyonight-moon"
 export NVIM_THEME="tokyonight"
 export WEZTERM_THEME="Tokyo Night Moon"
-export GTK_THEME="Tokyonight"
+export GTK_THEME="tokyonight-moon"

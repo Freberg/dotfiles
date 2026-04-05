@@ -1,4 +1,4 @@
 export BAT_THEME=Nord
 export NVIM_THEME=nord
 export WEZTERM_THEME=nord
-export GTK_THEME=Nordic
+export GTK_THEME=nord

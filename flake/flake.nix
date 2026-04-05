@@ -31,7 +31,7 @@
         inherit system;
       };
 
-      mkNixosSystem = { system, hostname, extraSpecialArgs ? { } }:
+      mkNixosSystem = { system, hostname, isDesktop, extraSpecialArgs ? { } }:
         let pkgsUnstable = mkUnstable system;
         in nixpkgs.lib.nixosSystem {
           inherit system;
@@ -42,7 +42,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit username dagger pkgsUnstable; };
+              home-manager.extraSpecialArgs = { inherit username dagger pkgsUnstable isDesktop; };
             }
           ];
         };
@@ -52,11 +52,13 @@
         dellXps = mkNixosSystem {
           system = "x86_64-linux";
           hostname = "dell-xps";
+          isDesktop = true;
         };
 
         wsl = mkNixosSystem {
           system = "x86_64-linux";
           hostname = "wsl";
+          isDesktop = false;
           extraSpecialArgs = {
             wsl-module = nixos-wsl.nixosModules.default;
           };

@@ -69,4 +69,6 @@
     enable = true;
     initContent = "source ~/.config/zsh/zshrc";
   };
+
+  programs.bat.enable = true;
 }
