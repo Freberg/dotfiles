@@ -1,4 +1,27 @@
-@import url("../theme/waybar/current");
+@import url("../theme/css/current");
+
+@define-color background_color_1 @background;
+@define-color foreground_color_1 @foreground;
+
+@define-color background_color_2 @cyan;
+@define-color foreground_color_2 @background;
+
+@define-color background_color_3 @green;
+@define-color foreground_color_3 @background;
+
+@define-color background_color_4 @pink;
+@define-color foreground_color_4 @background;
+
+@define-color background_color_5 @yellow;
+@define-color foreground_color_5 @background;
+
+@define-color background_color_6 @cyan;
+@define-color foreground_color_6 @background;
+
+@define-color background_color_7 @background;
+@define-color foreground_color_7 @foreground;
+
+@define-color active @comment;
 
 @keyframes blink-critical {
     to {
@@ -59,12 +82,12 @@ widget > * {
     padding-left: 2pt;
     padding-right: 2pt;
     background: @background_color_1;
-    color: @foreground_color_1;
+    color: @active;
 }
 
 #workspaces button.focused,
 #workspaces button.visible {
-    color: @active;
+    color: @foreground_color_1;
 }
 
 #workspaces button:hover {
