@@ -8,7 +8,7 @@
     hyprlock
     # notifications
     libnotify
-    dunst
+    swaynotificationcenter
     # screenshot
     sway-contrib.grimshot
     satty

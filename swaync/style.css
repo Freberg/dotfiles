@@ -1,0 +1,23 @@
+@import url("../theme/css/current");
+
+.notification-content {
+    background: @background;
+    color: @foreground;
+    border-radius: 0;
+    padding: 6px;
+}
+
+.low {
+    border-color: @comment;
+    border-radius: 0;
+}
+
+.normal {
+    border-color: @cyan;
+    border-radius: 0;
+}
+
+.critical {
+    border-color: @pink;
+    border-radius: 0;
+}

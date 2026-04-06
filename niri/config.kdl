@@ -3,7 +3,7 @@ include "../theme/niri/current"
 
 spawn-at-startup "waybar"
 spawn-sh-at-startup "swww-daemon && swww img $HOME/.config/wallpaper/current"
-spawn-at-startup "dunst" "-conf" "~/.config/theme/dunst/current"
+spawn-at-startup "swaync"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 

@@ -11,8 +11,8 @@ change_theme () {
 
 theme=$1
 
-change_theme "dunst"
 change_theme "env"
+change_theme "css"
 change_theme "hypr"
 change_theme "kitty"
 change_theme "wallpaper"
@@ -25,8 +25,8 @@ killall -r -SIGUSR2 ".*waybar.*"
 killall -USR1 kitty .kitty-wrapped 2>/dev/null
 touch "$HOME/.config/wezterm/wezterm.lua"
 
-if command -v dunstctl >/dev/null 2>&1; then
-  dunstctl reload
+if command -v swaync-client >/dev/null 2>&1; then
+  swaync-client -rs
 fi
 
 if command -v swww >/dev/null 2>&1; then
