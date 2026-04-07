@@ -53,7 +53,7 @@ binds {
     Mod+F { expand-column-to-available-width; }
 
     // Launchers
-    Mod+Q { spawn-sh "source ~/.config/theme/env/current && kitty"; }
+    Mod+Q { spawn-sh "kitty"; }
     Mod+R { spawn-sh "~/.config/scripts/ui/app_menu.sh"; }
     Mod+V { spawn-sh "~/.config/scripts/ui/cliphist_menu.sh"; }
     Mod+P { spawn-sh "grimshot copy area && notify-send 'Print Screen' 'Area copied to clipboard'"; }

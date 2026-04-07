@@ -3,10 +3,7 @@ eval "$(sheldon source)"
 
 source ~/.config/zsh/alias
 [ -f ~/.env.sh ] && source ~/.env.sh
-
-# colors
-#test -r ~/.config/theme/dircolors/current && eval "$(dircolors ~/.config/theme/dircolors/current)"
-#test -r ~/.config/theme/env/current && source ~/.config/theme/env/current
+[ -f ~/.config/theme/env.sh ] && source ~/.config/theme/env.sh
 
 # man
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -25,9 +22,6 @@ eval "$(zoxide init zsh)"
 # prompt
 [ $TERM != "linux" ] && export STARSHIP_CONFIG=~/.config/starship/starship.toml && eval "$(starship init zsh)"
 
-# wezterm
-source ~/.config/wezterm/wezterm.sh
-
 preexec() {
-    test -r ~/.config/theme/env/current && source ~/.config/theme/env/current
+    test -r ~/.config/theme/env.sh && source ~/.config/theme/env.sh
 }

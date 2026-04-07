@@ -1,5 +1,10 @@
 @import url("../theme/css/current");
 
+* {
+    font-family: JetBrainsMono Nerd Font;
+    font-size: small;
+}
+
 .notification-content {
     background: @background;
     color: @foreground;

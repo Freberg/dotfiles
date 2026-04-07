@@ -163,11 +163,13 @@
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
     },
     "custom/separator_left_1": {
-        "format": "",
+        "exec": "~/.config/scripts/ui/separators.sh left",
+        "interval": "once",
         "tooltip": false
     },
     "custom/separator_left_2": {
-        "format": "",
+        "exec": "~/.config/scripts/ui/separators.sh left",
+        "interval": "once",
         "tooltip": false
     },
     "custom/separator_left_end": {
@@ -179,27 +181,33 @@
        "tooltip": false
     },
     "custom/separator_right_1": {
-        "format": "",
-       "tooltip": false
-    },
-    "custom/separator_right_2": {
-        "format": "",
+        "exec": "~/.config/scripts/ui/separators.sh right",
+        "interval": "once",
         "tooltip": false
     },
-     "custom/separator_right_3": {
-        "format": "",
+    "custom/separator_right_2": {
+        "exec": "~/.config/scripts/ui/separators.sh right",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/separator_right_3": {
+        "exec": "~/.config/scripts/ui/separators.sh right",
+        "interval": "once",
         "tooltip": false
     },
     "custom/separator_right_4": {
-       "format": "",
+        "exec": "~/.config/scripts/ui/separators.sh right",
+        "interval": "once",
         "tooltip": false
     },
     "custom/separator_right_5": {
-        "format": "",
+        "exec": "~/.config/scripts/ui/separators.sh right",
+        "interval": "once",
         "tooltip": false
     },
     "custom/separator_right_6": {
-         "format": "",
-         "tooltip": false
+        "exec": "~/.config/scripts/ui/separators.sh right",
+        "interval": "once",
+        "tooltip": false
     }
 }
