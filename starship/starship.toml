@@ -21,9 +21,9 @@ $nim\
 $python\
 $rust\
 $scala\
-$nix_shell\
 [$env_var](fg:purple bg:yellow)\
 $docker_context\
+$nix_shell\
 [$env_var](fg:yellow bg:black)\
 $time\
 [$env_var ](fg:black)\
@@ -154,5 +154,5 @@ symbol = ''
 
 [nix_shell]
 format = '[$symbol$state( \($name\)) ]($style)'
-symbol = '❄️ '
-style = "bg:purple fg:black"
+symbol = '󱄅 '
+style = "bg:yellow fg:black"
