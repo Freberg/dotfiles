@@ -136,13 +136,7 @@ widget > * {
     background: @background;
 }
 
-#custom-devpod {
-    background: @background_color_3;
-    color: @foreground_color_3;
-    padding: 0px 5px;
-}
-
-#custom-docker {
+#custom-devpod, #custom-separator_right_thin_1, #custom-docker {
     background: @background_color_3;
     color: @foreground_color_3;
     padding: 0px 5px;
@@ -154,8 +148,7 @@ widget > * {
     background: @background_color_3;
 }
 
-#pulseaudio,
-#pulseaudio.microphone {
+#pulseaudio, #custom-separator_right_thin_2, #pulseaudio.microphone {
     background: @background_color_4;
     color: @foreground_color_4;
     padding: 0px 5px;
@@ -167,8 +160,7 @@ widget > * {
     background: @background_color_4;
 }
 
-#custom-nixos,
-#battery {
+#custom-nixos, #custom-separator_right_thin_3, #battery {
     background: @background_color_5;
     color: @foreground_color_5;
     padding: 0px 5px;
@@ -180,13 +172,7 @@ widget > * {
     background: @background_color_5;
 }
 
-#custom-vpn {
-    background: @background_color_6;
-    color: @foreground_color_6;
-    padding: 0px 5px;
-}
-
-#custom-network {
+#custom-vpn, #custom-separator_right_thin_4, #custom-network {
     background: @background_color_6;
     color: @foreground_color_6;
     padding: 0px 5px;

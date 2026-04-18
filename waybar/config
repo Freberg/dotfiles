@@ -23,15 +23,19 @@
         "tray",
         "custom/separator_right_1",
         "custom/devpod",
+        "custom/separator_right_thin_1",
         "custom/docker",
         "custom/separator_right_2",
         "pulseaudio",
+        "custom/separator_right_thin_2",
         "pulseaudio#microphone",
         "custom/separator_right_3",
         "battery",
+        "custom/separator_right_thin_3",
         "custom/nixos",
         "custom/separator_right_4",
         "custom/vpn",
+        "custom/separator_right_thin_4",
         "custom/network",
         "custom/separator_right_5",
         "clock"
@@ -207,6 +211,26 @@
     },
     "custom/separator_right_6": {
         "exec": "~/.config/scripts/ui/separators.sh right",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/separator_right_thin_1": {
+        "exec": "~/.config/scripts/ui/separators.sh right-thin",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/separator_right_thin_2": {
+        "exec": "~/.config/scripts/ui/separators.sh right-thin",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/separator_right_thin_3": {
+        "exec": "~/.config/scripts/ui/separators.sh right-thin",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/separator_right_thin_4": {
+        "exec": "~/.config/scripts/ui/separators.sh right-thin",
         "interval": "once",
         "tooltip": false
     }
