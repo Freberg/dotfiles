@@ -5,12 +5,7 @@
 @define-color comment #928374;
 @define-color cyan #458588;
 @define-color green #98971a;
-@define-color orange #d65d0e;
 @define-color pink #b16286;
 @define-color purple #b16286;
 @define-color red #cc241d;
 @define-color yellow #d79921;
-
-* {
-  border: none;
-}
