@@ -14,6 +14,7 @@
     pyright
     ruff
     bash-language-server
+    vscode-css-languageserver
     # neovim
     pkgsUnstable.neovim
   ];
