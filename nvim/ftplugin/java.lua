@@ -24,6 +24,7 @@ local workspace_dir = vim.fn.expand('~/.cache/jdtls/workspace/') .. project_name
 local config = {
   cmd = { 'jdtls', '-data', workspace_dir },
   root_dir = jdtls.setup.find_root({ '.git', 'mvnw', 'gradlew' }),
+  on_attach = shared_config.on_attach,
   capabilities = shared_config.capabilities,
 
   init_options = {
