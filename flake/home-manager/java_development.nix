@@ -14,6 +14,10 @@
     JAVA_25_HOME = "$HOME/jdks/temurin25";
     GRAAL_HOME = "$HOME/jdks/graalvm-ce";
     JETBRAINS_CLIENT_JDK = "$HOME/jdks/jetbrains";
+    JAVA_DEBUG_BUNDLE = "${pkgsUnstable.vscode-extensions.vscjava.vscode-java-debug}" 
+      + "/share/vscode/extensions/vscjava.vscode-java-debug/server";
+    JAVA_TEST_BUNDLE = "${pkgsUnstable.vscode-extensions.vscjava.vscode-java-test}"
+      + "/share/vscode/extensions/vscjava.vscode-java-test/server";
   };
 
   home.packages = with pkgs; [
@@ -23,6 +27,6 @@
     jdk17
     #graalvm-ce
     java-language-server
-    jdt-language-server
+    pkgsUnstable.jdt-language-server
   ];
 }

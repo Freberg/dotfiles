@@ -7,8 +7,8 @@
     # lsps & formatters
     dockerfile-language-server
     docker-compose-language-service
-    jdt-language-server
     vscode-extensions.vscjava.vscode-java-debug
+    pkgsUnstable.vscode-extensions.vscjava.vscode-java-test
     lua-language-server
     nixd
     nixfmt-rfc-style
