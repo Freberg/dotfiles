@@ -8,6 +8,7 @@
     dockerfile-language-server
     docker-compose-language-service
     jdt-language-server
+    vscode-extensions.vscjava.vscode-java-debug
     lua-language-server
     nixd
     nixfmt-rfc-style
