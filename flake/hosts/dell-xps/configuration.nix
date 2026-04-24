@@ -47,7 +47,10 @@
   };
 
   # docker
-  virtualisation.docker.enable = true;
+  virtualisation = {
+    docker.enable = true;
+    podman.enable = true;
+  };
 
   # user
   users.users.${username} = {
