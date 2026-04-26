@@ -3,6 +3,12 @@
 TICKER_LOGIC="$HOME/.config/scripts/ui/news_ticker.sh"
 UNIT_NAME="newsboat-reload"
 
+cleanup() {
+  pkill -f "kitten panel.*news_ticker.sh"
+  exit 0
+}
+trap cleanup SIGTERM SIGINT
+
 if ! systemctl --user list-timers | grep -q "$UNIT_NAME.timer"; then
   systemd-run --user \
     --unit="$UNIT_NAME" \
@@ -31,3 +37,5 @@ for MONITOR in "${MONITORS[@]}"; do
     -o "background_opacity=1.0" \
     bash "$TICKER_LOGIC" &
 done
+
+wait

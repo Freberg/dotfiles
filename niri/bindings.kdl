@@ -59,6 +59,7 @@ binds {
     Mod+P { spawn-sh "grimshot copy area && notify-send 'Print Screen' 'Area copied to clipboard'"; }
     Mod+Alt+P { spawn-sh "grimshot save area - | satty --early-exit -f - -o - | wl-copy"; }
     Mod+O { spawn-sh "f=/tmp/ocr.png; grimshot save area $f && (tesseract $f - | wl-copy && notify-send 'OCR' 'Text copied to clipboard'); rm -f $f"; }
+    Mod+B { spawn "sh" "-c" "pkill waybar || waybar"; }
 
     // Media keys
     XF86AudioRaiseVolume { spawn "pamixer" "-u" "-i" "5"; }
