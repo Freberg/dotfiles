@@ -1,0 +1,6 @@
+export BAT_THEME=kanagawa-dragon
+export NVIM_THEME=kanagawa_dragon
+export WEZTERM_THEME='Kanagawa Dragon (Gogh)'
+export GTK_THEME=kanagawa-dragon
+
+export WALLPAPER_COLOR="#181616"

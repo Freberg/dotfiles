@@ -4,9 +4,10 @@ change_theme () {
   if [ "$1" == "wallpaper" ]; then
     app_dir="$HOME/.config/$1"
   else
-    app_dir="$( dirname -- "$0"; )/$1"
+    app_dir="${0%/*}/$1"
   fi
-  ln -rsf "$app_dir/$theme"* "$app_dir/current" || exit 1
+  find "$app_dir" -maxdepth 1 \( -name "$theme" -o -name "$theme.*" \) -print0 | \
+    xargs -0 -I {} ln -rsf {} "$app_dir/current" || exit 1
 }
 
 theme=$1
@@ -30,12 +31,12 @@ if command -v swaync-client >/dev/null 2>&1; then
 fi
 
 if command -v swww >/dev/null 2>&1; then
-  if [ -f "$HOME/.config/wallpaper/current" ]; then
+  if [ -n "$WALLPAPER_COLOR" ]; then
+    swww clear "${WALLPAPER_COLOR#\#}"
+  elif [ -f "$HOME/.config/wallpaper/current" ]; then
     swww img "$HOME/.config/wallpaper/current" \
       --transition-type left \
       --transition-duration 1
-  elif [ -n "$WALLPAPER_COLOR" ]; then
-    swww clear "${WALLPAPER_COLOR#\#}"
   fi
 fi
 
