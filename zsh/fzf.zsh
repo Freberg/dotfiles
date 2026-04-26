@@ -15,8 +15,8 @@ _fzf_comprun() {
     local command=$1
     shift
     case "$command" in
-        export|unset)   fzf "$@" --preview "eval 'echo \${}'";;
-        ssh)            fzf "$@" --preview 'dig {}' ;;
+        export|unset)   fzf "$@" --preview "eval 'echo \${}' | bat -pl sh --color always";;
+        ssh)            fzf "$@" --preview 'dig {} | bat -pl conf --color always' ;;
         kill)           fzf "$@" --preview "echo {} | awk '{print \$2}' | xargs -I PID nu -c 'ps -l | where pid == PID \
                             | to json' | bat -pl json --color always" ;;  
         ps)             fzf "$@" --preview "echo {} | awk '{print \$2}' | xargs -I PID witr --pid PID" ;;
