@@ -1,0 +1,6 @@
+export BAT_THEME=carbonfox
+export NVIM_THEME=carbonfox
+export WEZTERM_THEME=carbonfox
+export GTK_THEME=carbonfox
+
+export WALLPAPER_COLOR="#161616"

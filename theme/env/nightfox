@@ -1,0 +1,6 @@
+export BAT_THEME=nightfox
+export NVIM_THEME=nightfox
+export WEZTERM_THEME=nightfox
+export GTK_THEME=nightfox
+
+export WALLPAPER_COLOR="#192330"

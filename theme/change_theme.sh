@@ -18,6 +18,7 @@ change_theme "kitty"
 change_theme "wallpaper"
 
 unset IS_LIGHT_THEME
+unset WALLPAPER_COLOR
 source "$HOME/.config/theme/env/current"
 
 killall -r -SIGUSR2 ".*waybar.*"
@@ -29,9 +30,13 @@ if command -v swaync-client >/dev/null 2>&1; then
 fi
 
 if command -v swww >/dev/null 2>&1; then
-  swww img "$HOME/.config/wallpaper/current" \
-    --transition-type left \
-    --transition-duration 1
+  if [ -f "$HOME/.config/wallpaper/current" ]; then
+    swww img "$HOME/.config/wallpaper/current" \
+      --transition-type left \
+      --transition-duration 1
+  elif [ -n "$WALLPAPER_COLOR" ]; then
+    swww clear "${WALLPAPER_COLOR#\#}"
+  fi
 fi
 
 if command -v gsettings >/dev/null 2>&1; then
