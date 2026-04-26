@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     nixd
-    jdt-language-server
     kotlin-language-server
     pyright
   ];
