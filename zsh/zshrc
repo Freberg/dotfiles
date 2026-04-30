@@ -19,6 +19,11 @@ eval "$(pay-respects zsh --alias)"
 # zoxide
 eval "$(zoxide init zsh)"
 
+# terminal
+if [[ "$TERM" == "xterm-kitty" ]]; then
+    alias ssh='TERM=xterm-256color ssh'
+fi
+
 # prompt
 [ $TERM != "linux" ] && export STARSHIP_CONFIG=~/.config/starship/starship.toml && eval "$(starship init zsh)"
 
