@@ -100,7 +100,6 @@
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "tooltip": false,
         "format-muted": "󰖁 Muted",
         "on-click": "pamixer -t",
         "on-scroll-up": "pamixer -i 5",
