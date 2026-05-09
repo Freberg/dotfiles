@@ -28,13 +28,13 @@ local is_file_chooser = vim.env.NVIM_FILE_CHOOSER == "1"
 local plugin_spec = {}
 if is_file_chooser then
   plugin_spec = {
-    { import = "plugins/themes/" .. vim.env.NVIM_THEME },
+    { import = "plugins.themes" },
     { import = "plugins.oil" },
     { import = "plugins.telescope" },
   }
 else
   plugin_spec = {
-    { import = "plugins/themes/" .. vim.env.NVIM_THEME },
+    { import = "plugins.themes" },
     { import = "plugins" },
   }
 end
@@ -49,4 +49,17 @@ require("lazy").setup({
 
 if is_file_chooser then
     require("file-chooser")
+end
+
+if vim.env.IS_LIGHT_THEME == "true" then
+  vim.o.background = "light"
+else
+  vim.o.background = "dark"
+end
+
+if vim.env.NVIM_THEME then
+  local status_ok, _ = pcall(vim.cmd.colorscheme, vim.env.NVIM_THEME)
+  if not status_ok then
+    print("Theme not found: " .. vim.env.NVIM_THEME)
+  end
 end

@@ -1,5 +1,5 @@
 return {
-  "neanias/everforest-nvim",
+  "ellisonleao/gruvbox.nvim",
   lazy = false,
   priority = 1000,
 }
