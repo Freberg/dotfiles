@@ -3,12 +3,12 @@ let mapleader = " "
 set relativenumber
 set number 
 set scrolloff=10
-set argtextobj
 
 "" plugins
-set surround
-set nerdtree
+set argtextobj
 set commentary
+set nerdtree
+set surround
 
 "" yank
 set highlightedyank
@@ -19,6 +19,9 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+
+"" nop
+map s <nop>
 
 "" navigation
 nmap <leader>e <Action>(RecentFiles)
@@ -43,6 +46,17 @@ nmap gi <Action>(GotoImplementation)
 nmap go <Action>(GotoTypeDeclaration)
 nmap gr <Action>(FindUsages)
 nmap gs <Action>(ParameterInfo)
+"" flash
+nmap s <Action>(flash.search)
+xmap s <Action>(flash.search)
+nmap S <Action>(flash.treesitter)
+xmap S <Action>(flash.treesitter)
+nmap f <Action>(flash.find)
+xmap f <Action>(flash.find)
+nmap ; <Action>(flash.repeat)
+xmap ; <Action>(flash.repeat)
+nmap , <Action>(flash.repeat_backward)
+xmap , <Action>(flash.repeat_backward)
 
 "" refactoring
 nmap <leader>rn <Action>(RenameElement)
