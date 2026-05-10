@@ -1,0 +1,71 @@
+"" general
+let mapleader = " "
+set relativenumber
+set number 
+set scrolloff=10
+set argtextobj
+
+"" plugins
+set surround
+set nerdtree
+set commentary
+
+"" yank
+set highlightedyank
+set clipboard+=unnamed
+
+"" search
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+"" navigation
+nmap <leader>e <Action>(RecentFiles)
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fs <Action>(GotoSymbol)
+nmap <leader>fg <Action>(FindInPath)
+nmap <leader>- :NERDTreeToggle<CR>
+nmap - <Action>(ShowNavBar)
+nmap <M-e> <Action>(FocusEditor)
+nmap <M-q> <Action>(ActivateTerminalToolWindow)
+nmap <Esc> <Action>(EditorEscape)
+
+"" files
+nmap <leader>ns <Action>(NewScratchFile)
+nmap <leader>nf <Action>(NewElementSamePlace)
+
+"" code navigation
+nmap K <Action>(QuickJavaDoc)
+nmap gd <Action>(GotoDefinition)
+nmap gD <Action>(GotoDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap go <Action>(GotoTypeDeclaration)
+nmap gr <Action>(FindUsages)
+nmap gs <Action>(ParameterInfo)
+
+"" refactoring
+nmap <leader>rn <Action>(RenameElement)
+nmap <leader>ca <Action>(ShowIntentionActions)
+nmap <leader>F <Action>(ReformatCode)
+"" surround remaps
+nmap sd ds
+nmap sr cs
+nmap sa ys
+vmap sa S 
+
+"" debugging
+nmap <leader>db <Action>(ToggleLineBreakpoint)
+nmap <leader>dc <Action>(Resume)
+nmap <leader>di <Action>(StepInto)
+nmap <leader>do <Action>(StepOver)
+nmap <leader>dq <Action>(Stop)
+nmap <leader>du <Action>(ActivateDebugToolWindow
+
+"" runners
+nmap <leader>rc <Action>(RunClass)
+nmap <leader>rd <Action>(DebugClass)
+nmap <leader>rr <Action>(ChooseRunConfiguration)
+
+"" vcs
+nmap <leader>bb <Action>(Annotate)
