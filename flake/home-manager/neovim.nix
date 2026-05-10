@@ -4,6 +4,8 @@
     # plugin dependencies
     ripgrep
     gnumake
+    luarocks
+    pkgsUnstable.tree-sitter
     # lsps & formatters
     dockerfile-language-server
     docker-compose-language-service
