@@ -3,8 +3,12 @@
 function action_menu() {
   local title="$1"
   local actions="$2"
+  local custom_fzf_flags="$3"
+
+  local fzf_cmd="fzf --header='$title' --border $custom_fzf_flags"
+
   if [ -t 0 ]; then
-    selection=$(echo -e "$actions" | fzf --header="$title" --border)
+    selection=$(echo -e "$actions" | eval "$fzf_cmd")
   else
     local input_tmp
     local result_tmp
@@ -15,7 +19,7 @@ function action_menu() {
 
     kitten quick-access-terminal \
       --instance-group="action_menu" \
-      sh -c "fzf --header='$title' --border < '$input_tmp' > '$result_tmp'"
+      sh -c "$fzf_cmd < '$input_tmp' > '$result_tmp'"
 
     selection=$(cat "$result_tmp")
     rm "$input_tmp" "$result_tmp"
