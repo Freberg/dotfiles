@@ -70,5 +70,10 @@
     initContent = "source ~/.config/zsh/zshrc";
   };
 
+  programs.bash = {
+    enable = true;
+    initExtra = "source ~/.config/bash/bashrc";
+  };
+
   programs.bat.enable = true;
 }
