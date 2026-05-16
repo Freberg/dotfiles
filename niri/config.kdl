@@ -40,6 +40,7 @@ hotkey-overlay {
 }
 
 layout {
+    background-color "transparent"
     gaps 2
     center-focused-column "never"
     preset-column-widths {
@@ -76,3 +77,9 @@ window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
+
+layer-rule {
+    match namespace="^swww-daemon$"
+    place-within-backdrop true
+}
+

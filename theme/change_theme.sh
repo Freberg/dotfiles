@@ -51,9 +51,7 @@ if command -v swaync-client >/dev/null 2>&1; then
 fi
 
 if command -v swww >/dev/null 2>&1; then
-  if [ -n "$WALLPAPER_COLOR" ]; then
-    swww clear "${WALLPAPER_COLOR#\#}"
-  elif [ -f "$HOME/.config/wallpaper/current" ]; then
+  if [ -f "$HOME/.config/wallpaper/current" ]; then
     swww img "$HOME/.config/wallpaper/current" \
       --transition-type left \
       --transition-duration 1
