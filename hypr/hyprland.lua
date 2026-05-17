@@ -1,5 +1,13 @@
 require("bindings")
 
+local function file_exists(path)
+  local f = io.open(path, "r")
+  if f then f:close() return true else return false end
+end
+
+package.path = package.path .. ";" .. os.getenv("HOME") .. "/.config/?.lua"
+local theme = file_exists(os.getenv("HOME") .. "/.config/theme/hypr/current.lua") and require("theme.hypr.current")
+
 hl.env("GDK_SCALE", "1.5")
 
 hl.on("hyprland.start", function () 
@@ -63,6 +71,8 @@ hl.config({
     gaps_out = 2,
     border_size = 1,
     layout = "master",
+    ["col.active_border"] = theme and theme.active_border or "rgb(ff0033)",
+    ["col.inactive_border"] = theme and theme.inactive_border or "rgba(444a73aa)",
   },
   decoration = {
     rounding = 0,

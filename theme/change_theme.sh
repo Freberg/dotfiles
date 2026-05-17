@@ -12,6 +12,29 @@ change_theme () {
     xargs -0 -I {} ln -rsf {} "$app_dir/current" || exit 1
 }
 
+create_theme_files() {
+  GTK_CSS="$HOME/.themes/$GTK_THEME/gtk-4.0/gtk.css"
+
+  ACTIVE=$(grep -oP '@define-color theme_selected_bg_color \K[^;]+' "$GTK_CSS")
+  INACTIVE=$(grep -oP '@define-color theme_bg_color \K[^;]+' "$GTK_CSS")
+
+  mkdir -p "$HOME/.config/theme/niri" "$HOME/.config/theme/hypr"
+  cat << EOF > "$HOME/.config/theme/niri/current.kdl"
+layout {
+  border {
+    active-color "$(echo "$ACTIVE" | sed -E 's/#([0-9a-fA-F]{6})/#\1ff/')"
+    inactive-color "$(echo "$INACTIVE" | sed -E 's/#([0-9a-fA-F]{6})/#\1ff/')"
+  }
+}
+EOF
+cat << EOF > "$HOME/.config/theme/hypr/current.lua"
+return {
+  active_border = "$(echo "$ACTIVE" | sed -E 's/#([0-9a-fA-F]{6})/rgb(\1)/')",
+  inactive_border = "$(echo "$INACTIVE" | sed -E 's/#([0-9a-fA-F]{6})/rgb(\1)/')"
+}
+EOF
+}
+
 list_themes() {
   if [ -d "$ENV_DIR" ]; then
     find "$ENV_DIR" -maxdepth 1 -type f ! -name "current" -printf "%f\n" | sed 's/\.[^.]*$//' | sort -u
@@ -36,11 +59,11 @@ fi
 
 change_theme "env"
 change_theme "css"
-change_theme "hypr"
 change_theme "kitty"
 change_theme "wallpaper"
 
 source "$HOME/.config/theme/env.sh"
+create_theme_files
 
 killall -r -SIGUSR2 ".*waybar.*"
 killall -USR1 kitty .kitty-wrapped 2>/dev/null

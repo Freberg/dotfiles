@@ -1,5 +1,7 @@
 include "bindings.kdl"
-include "../theme/niri/current"
+// todo - make this import optional as this file is generated via the change_theme.sh script (possible in v26.04)
+// include optional=true "../theme/niri/current.kdl"
+include "../theme/niri/current.kdl"
 
 spawn-at-startup "waybar"
 spawn-sh-at-startup "swww-daemon && swww img $HOME/.config/wallpaper/current"
