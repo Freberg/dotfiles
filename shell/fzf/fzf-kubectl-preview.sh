@@ -1,4 +1,3 @@
-#!/bin/sh
 line="$1"
 num_fields=$(echo "$line" | awk '{print NF}')
 

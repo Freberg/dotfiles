@@ -1,5 +1,3 @@
-#!/bin/sh
-
 UNIT=$(echo "$1" | awk '{print $1}')
 SCOPE_VAL=$(echo "$1" | awk '{print $2}')
 
