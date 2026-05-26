@@ -2,6 +2,10 @@ export ZSH_FZF_HISTORY_SEARCH_EVENT_NUMBERS=0
 export ZSH_FZF_HISTORY_SEARCH_DATES_IN_SEARCH=0
 export ZSH_FZF_HISTORY_SEARCH_REMOVE_DUPLICATES=1
 
+show_file_or_dir_preview="$HOME/.config/shell/fzf/fzf-preview.sh {}"
+export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
+export FZF_ALT_C_OPTS="--preview '$show_file_or_dir_preview'"
+
 typeset -A FZF_CMD_MAP
 FZF_CMD_MAP=(
   [journalctl]=systemctl
@@ -18,8 +22,6 @@ for cmd in "${FZF_SUPPORTED_COMMANDS[@]}"; do
   [ -f "$HOME/.config/shell/fzf/fzf-$cmd.sh" ] && source "$HOME/.config/shell/fzf/fzf-$cmd.sh"
   [ -n "$BASH" ] && complete -F "_fzf_complete_$cmd" -o default -o bashdefault "$cmd" 
 done
-
-export show_file_or_dir_preview="$HOME/.config/shell/fzf/fzf-preview.sh"
 
 # util function to make fzf functions behave similarly in bash and zsh
 _fzf_normalize_completion_context() {
