@@ -11,6 +11,6 @@
     };
   };
   desktop = {
-    gtkThemeSource = "${pkgs.everforest-gtk-theme}/share/themes/Everforest-Dark-BL-LB";
+    gtkThemeSource = "${pkgs.everforest-gtk-theme}/share/themes/Everforest-Dark";
   };
 }

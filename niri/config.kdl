@@ -4,7 +4,7 @@ include "bindings.kdl"
 include "../theme/niri/current.kdl"
 
 spawn-at-startup "waybar"
-spawn-sh-at-startup "swww-daemon && swww img $HOME/.config/wallpaper/current"
+spawn-sh-at-startup "awww-daemon && swww img $HOME/.config/wallpaper/current"
 spawn-at-startup "swaync"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
@@ -81,7 +81,7 @@ window-rule {
 }
 
 layer-rule {
-    match namespace="^swww-daemon$"
+    match namespace="^awww-daemon$"
     place-within-backdrop true
 }
 

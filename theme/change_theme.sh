@@ -73,10 +73,10 @@ if command -v swaync-client >/dev/null 2>&1; then
   swaync-client -rs
 fi
 
-if command -v swww >/dev/null 2>&1; then
+if command -v awww >/dev/null 2>&1; then
   if [ -f "$HOME/.config/wallpaper/current" ]; then
-    swww img "$HOME/.config/wallpaper/current" \
-      --transition-type left \
+    awww img "$HOME/.config/wallpaper/current" \
+      --transition-type wipe \
       --transition-duration 1
   fi
 fi

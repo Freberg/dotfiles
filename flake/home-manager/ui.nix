@@ -4,7 +4,7 @@
     # status bar
     pkgsUnstable.waybar
     # wallpaper / lock screen
-    swww
+    awww
     hyprlock
     # notifications
     libnotify

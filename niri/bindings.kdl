@@ -66,8 +66,8 @@ binds {
     XF86AudioRaiseVolume { spawn "pamixer" "-u" "-i" "5"; }
     XF86AudioLowerVolume { spawn "pamixer" "-u" "-d" "5"; }
     XF86AudioMute { spawn "pamixer" "-t"; }
-    XF86MonBrightnessUp { spawn "light" "-A" "5"; }
-    XF86MonBrightnessDown { spawn "light" "-U" "5"; }
+    XF86MonBrightnessUp { spawn "brightnessctl" "s" "+5%"; }
+    XF86MonBrightnessDown { spawn "brightnessctl" "s" "5%-"; }
 
     // Exit & Lock
     Mod+M { quit; } 

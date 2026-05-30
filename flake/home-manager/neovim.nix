@@ -13,7 +13,7 @@
     pkgsUnstable.vscode-extensions.vscjava.vscode-java-test
     lua-language-server
     nixd
-    nixfmt-rfc-style
+    nixfmt
     pyright
     ruff
     bash-language-server

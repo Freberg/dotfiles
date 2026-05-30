@@ -70,8 +70,8 @@ hl.bind(mainMod .. " + ALT + T", hl.dsp.exec_cmd("~/.config/scripts/ui/theme_men
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pamixer -u -i 5"), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pamixer -u -d 5"), { locked = true, repeating = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pamixer -t"), { locked = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("light -A 5"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("light -U 5"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl s +5%"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl s 5%-"), { locked = true, repeating = true })
 
 -- Exit & Lock
 hl.bind(mainMod .. " + M", hl.dsp.exit())

@@ -42,7 +42,6 @@
 
   # compositor and shell
   programs = {
-    light.enable = true;
     zsh.enable = true;
   };
 
@@ -68,7 +67,7 @@
 
   # packages
   environment.systemPackages = with pkgs; [
-    ecryptfs
+    fscrypt-experimental
     clamav
     keyutils
     wget
@@ -82,8 +81,7 @@
   ];
 
   # home directory encryption
-  security.pam.enableEcryptfs = true;
-  boot.kernelModules = [ "ecryptfs" ];
+  security.pam.enableFscrypt = true;
 
   # lock screen
   security.pam.services.hyprlock.text = lib.readFile "${pkgs.hyprlock}/etc/pam.d/hyprlock";

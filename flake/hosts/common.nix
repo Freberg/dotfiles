@@ -14,10 +14,12 @@
     options = "--delete-older-than 30d";
   };
 
+
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     # nvidia drivers
     "nvidia-x11"
     "nvidia-settings"
+    "nvidia-kernel-modules"
     # intellij
     "idea"
     "gateway"
