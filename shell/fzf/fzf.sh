@@ -14,7 +14,7 @@ FZF_CMD_MAP=(
 )
 
 FZF_SUPPORTED_COMMANDS=(
-  kubectl gradle mvn systemctl docker git glab ps kill ssh
+  kubectl gradle mvn systemctl docker git glab ps kill ssh ollama
 )
 
 for cmd in "${FZF_SUPPORTED_COMMANDS[@]}"; do
