@@ -1,4 +1,4 @@
-{ pkgsUnstable, ... }:
+{ pkgs, ... }:
 {
   services.ollama = {
     enable = true;
@@ -10,6 +10,6 @@
   };
 
   home.packages = [
-    pkgsUnstable.opencode
+    pkgs.opencode
   ];
 }

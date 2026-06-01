@@ -1,8 +1,8 @@
-{ pkgs, pkgsUnstable, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     # status bar
-    pkgsUnstable.waybar
+    waybar
     # wallpaper / lock screen
     awww
     hyprlock

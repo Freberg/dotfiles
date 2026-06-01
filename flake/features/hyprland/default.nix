@@ -1,9 +1,8 @@
-{ pkgs, pkgsUnstable, ... }:
+{ pkgs, ... }:
 {
   programs.hyprland = {
     enable = true;
     withUWSM = true;
-    package = pkgsUnstable.hyprland;
   };
 
   xdg = {

@@ -1,7 +1,5 @@
 {
-  username,
   pkgs,
-  pkgsUnstable,
   ...
 }:
 {

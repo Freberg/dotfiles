@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgsUnstable,
   dagger,
   ...
 }:
@@ -9,7 +8,7 @@
     # ci
     act
     ansible
-    pkgsUnstable.devpod
+    devpod
     dagger.packages.${pkgs.stdenv.hostPlatform.system}.dagger
     # misc tooling
     nodejs_24

@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgsUnstable,
   ...
 }:
 {
@@ -15,7 +14,7 @@
     nushell
     # monitoring
     bottom
-    pkgsUnstable.witr
+    witr
     # networking
     dig
     # nix
@@ -23,14 +22,14 @@
     # clis
     lazygit
     lazydocker
-    pkgsUnstable.fzf
+    fzf
     fd
     delta
     glab
     gh
     # database tools
-    (pkgsUnstable.sqlit-tui.overridePythonAttrs (oldAttrs: {
-      dependencies = (oldAttrs.dependencies or [ ]) ++ (with pkgsUnstable.python3Packages; [
+    (sqlit-tui.overridePythonAttrs (oldAttrs: {
+      dependencies = (oldAttrs.dependencies or [ ]) ++ (with python3Packages; [
         psycopg2-binary
         pymysql
         oracledb
