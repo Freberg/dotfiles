@@ -10,13 +10,16 @@ if ! systemctl --user list-timers | grep -q "$UNIT_NAME.timer"; then
     --unit="$UNIT_NAME" \
     --on-calendar="12:00" \
     --description="Daily NixOS Update Check" \
+    --property=CPUSchedulingPolicy=idle \
     --setenv=PATH="/run/current-system/sw/bin:/etc/profiles/per-user/$USER/bin" \
     bash -c "
   BUILD=\$(nix build '$FLAKE_DIR#nixosConfigurations.$CONFIG_NAME.config.system.build.toplevel' \
     --recreate-lock-file \
     --no-write-lock-file \
     --print-out-paths \
-    --no-link) && \
+    --no-link \
+    --cores 4 \
+    --max-jobs 2) && \
 
     nvd diff /run/current-system \"\$BUILD\" > '$OUTPUT_FILE' && \
 
