@@ -10,7 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dagger = {
-      url = "github:dagger/nix";
+      url = "github:dagger/nix?ref=873cc22ba46b73d4a6c1aa6c102ef3aabc736496";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
