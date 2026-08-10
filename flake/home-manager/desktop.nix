@@ -18,7 +18,7 @@
     wezterm
     # IDEs
     jetbrains.idea
-    jetbrains.pycharm-oss
+    jetbrains.pycharm
     jetbrains.gateway
     vscode
     # utils

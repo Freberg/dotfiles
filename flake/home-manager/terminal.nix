@@ -30,7 +30,7 @@
     # database tools
     (sqlit-tui.overridePythonAttrs (oldAttrs: {
       dependencies = (oldAttrs.dependencies or [ ]) ++ (with python3Packages; [
-        psycopg2-binary
+        psycopg2
         pymysql
         oracledb
       ]);

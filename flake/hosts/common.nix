@@ -22,6 +22,7 @@
     "nvidia-kernel-modules"
     # intellij
     "idea"
+    "pycharm"
     "gateway"
     # vscode
     "vscode"
