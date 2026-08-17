@@ -7,5 +7,5 @@
         mvnd
         zsh
     ]);
-    runScript = "zsh";
+    runScript = "env -u shellHook -u etc_ignored zsh";
 }).env
