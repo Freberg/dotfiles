@@ -5,8 +5,6 @@
   home.file."jdks/temurin21".source = pkgs.temurin-bin-21;
   home.file."jdks/temurin25".source = pkgs.temurin-bin-25;
   home.file."jdks/graalvm-ce".source = pkgs.graalvmPackages.graalvm-ce;
-  # workaround for wayland issues in jetbrains jdk - see JBR-10424
-  home.file."jdks/jetbrains".source = "${pkgsUnstable.jetbrains.jdk}/lib/openjdk";
 
   home.sessionVariables = {
     JAVA_11_HOME = "$HOME/jdks/temurin11";
@@ -14,7 +12,6 @@
     JAVA_21_HOME = "$HOME/jdks/temurin21";
     JAVA_25_HOME = "$HOME/jdks/temurin25";
     GRAAL_HOME = "$HOME/jdks/graalvm-ce";
-    JETBRAINS_CLIENT_JDK = "$HOME/jdks/jetbrains";
     IDEA_JDK = "$HOME/jdks/jetbrains";
     JAVA_DEBUG_BUNDLE = "${pkgsUnstable.vscode-extensions.vscjava.vscode-java-debug}" 
       + "/share/vscode/extensions/vscjava.vscode-java-debug/server";
