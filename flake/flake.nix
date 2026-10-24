@@ -27,23 +27,26 @@
     let
       username = "freberg";
 
-      mkUnstable = system: import nixpkgs-unstable {
-        inherit system;
+      mkUnstable = pkgs: import nixpkgs-unstable {
+          inherit (pkgs) system config;
       };
 
       mkNixosSystem = { system, hostname, isDesktop, extraSpecialArgs ? { } }:
-        let pkgsUnstable = mkUnstable system;
-        in nixpkgs.lib.nixosSystem {
+        nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit username pkgsUnstable; } // extraSpecialArgs;
+          specialArgs = { inherit username; } // extraSpecialArgs;
           modules = [
             ./hosts/${hostname}
             home-manager.nixosModules.home-manager
-            {
+            ({ pkgs, ... }: {
+              _module.args.pkgsUnstable = mkUnstable pkgs;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit username dagger pkgsUnstable isDesktop; };
-            }
+              home-manager.extraSpecialArgs = {
+                inherit username dagger isDesktop;
+                pkgsUnstable = mkUnstable pkgs;
+              };
+            })
           ];
         };
     in

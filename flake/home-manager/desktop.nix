@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgsUnstable,
   ...
 }:
 {
@@ -17,9 +18,9 @@
     kitty
     wezterm
     # IDEs
-    jetbrains.idea
-    jetbrains.pycharm
-    jetbrains.gateway
+    pkgsUnstable.intellij-idea
+    pkgsUnstable.pycharm
+    pkgsUnstable.jetbrains-gateway
     vscode
     # utils
     keepass
