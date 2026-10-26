@@ -134,7 +134,7 @@ widget > * {
     background: @background;
 }
 
-#custom-devpod, #custom-separator_right_thin_1, #custom-docker {
+#custom-devpod, #custom-separator_right_thin_1, #custom-docker, #custom-podman {
     background: @background_color_3;
     color: @foreground_color_3;
     padding: 0px 5px;

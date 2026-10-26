@@ -24,6 +24,8 @@
         "custom/separator_right_1",
         "custom/devpod",
         "custom/separator_right_thin_1",
+        "custom/podman",
+        "custom/separator_right_thin_1",
         "custom/docker",
         "custom/separator_right_2",
         "pulseaudio",
@@ -92,8 +94,17 @@
     "custom/docker": {
         "tooltip": true,
         "format": " {}",
-        "exec": "bash ~/.config/scripts/ui/docker_status.sh",
-        "on-click": "~/.config/scripts/ui/docker_menu.sh",
+        "exec": "bash ~/.config/scripts/ui/container_status.sh docker",
+        "on-click": "~/.config/scripts/ui/container_menu.sh docker",
+        "return-type": "json",
+        "interval": 10,
+        "signal": 8
+    },
+    "custom/podman": {
+        "tooltip": true,
+        "format": " {}",
+        "exec": "bash ~/.config/scripts/ui/container_status.sh podman",
+        "on-click": "~/.config/scripts/ui/container_menu.sh podman",
         "return-type": "json",
         "interval": 10,
         "signal": 8
