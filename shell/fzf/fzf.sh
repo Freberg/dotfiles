@@ -11,10 +11,11 @@ FZF_CMD_MAP=(
   [journalctl]=systemctl
   [mvnd]=mvn
   [mvnw]=mvn
+  [z]=zoxide
 )
 
 FZF_SUPPORTED_COMMANDS=(
-  kubectl gradle mvn systemctl docker git glab ps kill ssh ollama
+  kubectl gradle mvn systemctl docker git glab ps kill ssh ollama zoxide
 )
 
 for cmd in "${FZF_SUPPORTED_COMMANDS[@]}"; do
