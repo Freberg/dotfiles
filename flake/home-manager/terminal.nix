@@ -7,6 +7,7 @@
     # essentials
     git
     vim
+    pass
     # prompt
     starship
     # shell
@@ -27,6 +28,7 @@
     delta
     glab
     gh
+    jira-cli-go
     # database tools
     (sqlit-tui.overridePythonAttrs (oldAttrs: {
       dependencies = (oldAttrs.dependencies or [ ]) ++ (with python3Packages; [

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgsUnstable, ... }:
 {
   services.ollama = {
     enable = true;
@@ -11,5 +11,6 @@
 
   home.packages = [
     pkgs.opencode
+    pkgsUnstable.herdr
   ];
 }
