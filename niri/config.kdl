@@ -8,9 +8,12 @@ spawn-sh-at-startup "awww-daemon && swww img $HOME/.config/wallpaper/current"
 spawn-at-startup "swaync"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
+// spawn-sh-at-startup "kitty -o allow_remote_control=yes --listen-on $KITTY_SOCKET"
+spawn-sh-at-startup "kitty --start-as=hidden -o allow_remote_control=yes --listen-on $KITTY_SOCKET"
 
 environment {
     GDK_SCALE "1.5"
+    KITTY_SOCKET "unix:/tmp/kitty"
 }
 
 cursor {
