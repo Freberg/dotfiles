@@ -14,6 +14,7 @@
     lua-language-server
     nixd
     nixfmt
+    prettier
     pyright
     ruff
     bash-language-server
