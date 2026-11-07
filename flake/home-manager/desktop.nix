@@ -15,7 +15,7 @@
 
   home.packages = with pkgs; [
     # terminal emulators
-    kitty
+    pkgsUnstable.kitty
     wezterm
     # IDEs
     pkgsUnstable.intellij-idea

@@ -8,9 +8,4 @@
       OLLAMA_FLASH_ATTENTION = "1";
     };
   };
-
-  home.packages = [
-    pkgs.opencode
-    pkgsUnstable.herdr
-  ];
 }
