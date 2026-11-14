@@ -2,12 +2,26 @@
   pkgs,
   ...
 }:
+let
+  # TODO - remove once OSC-7501 support is released (probably v3.9)
+  customTmux = pkgs.tmux.overrideAttrs (oldAttrs: {
+    version = "unreleased-OSC-7501-support";
+    src = pkgs.fetchFromGitHub {
+      owner = "tmux";
+      repo = "tmux";
+      rev = "d84b58297a90a47886e599a9e422c9c5f5cf81cc";
+      hash = "sha256-7G5hjWTAr+COXMA0pouSHFt40NsAw1kKxbJI83++9m0=";
+    };
+    doInstallCheck = false;
+  });
+in
 {
   home.packages = with pkgs; [
     # essentials
     git
     vim
     pass
+    customTmux
     # prompt
     starship
     # shell

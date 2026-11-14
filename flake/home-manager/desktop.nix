@@ -21,7 +21,6 @@
     pkgsUnstable.intellij-idea
     pkgsUnstable.pycharm
     pkgsUnstable.jetbrains-gateway
-    vscode
     # utils
     keepass
     filezilla
@@ -36,4 +35,14 @@
 
   xdg.portal.config.common.default = "*";
   wayland.windowManager.hyprland.systemd.enable = false;
+
+  xdg.desktopEntries."kitty-tmux" = {
+    name = "kitty+tmux";
+    genericName = "Terminal Emulator";
+    comment = "Kitty without keybindings for tmux";
+    exec = "kitty --config \"~/.config/kitty/base.conf\" tmux";
+    icon = "kitty";
+    terminal = false;
+    categories = [ "System" "TerminalEmulator" ];
+  };
 }
