@@ -27,8 +27,10 @@ BEGINFILE {
 
 in_main == 1 {
   file=$1; line=$2;
-  split(line, a, "=");
-  key=a[1]; val=a[2];
+  eq_pos = index(line, "=");
+  if (eq_pos == 0) next;
+  key = substr(line, 1, eq_pos - 1);
+  val = substr(line, eq_pos + 1);
 
   if (key=="NoDisplay" && val=="true") { skip[file]=1 }
   if (key=="Name") { name[file]=val }
