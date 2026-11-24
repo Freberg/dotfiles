@@ -6,19 +6,21 @@
     gnumake
     luarocks
     pkgsUnstable.tree-sitter
-    # lsps & formatters
+    # lsps
     dockerfile-language-server
     docker-compose-language-service
     vscode-extensions.vscjava.vscode-java-debug
     pkgsUnstable.vscode-extensions.vscjava.vscode-java-test
     lua-language-server
     nixd
-    nixfmt
-    prettier
     pyright
-    ruff
     bash-language-server
     vscode-css-languageserver
+    # formatters
+    nixfmt
+    prettier
+    ruff
+    shfmt
     # neovim
     pkgsUnstable.neovim
   ];
