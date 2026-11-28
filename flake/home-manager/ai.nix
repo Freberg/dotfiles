@@ -1,5 +1,8 @@
 { pkgs, pkgsUnstable, ... }:
 {
+  home.packages = with pkgs; [
+    pkgsUnstable.pi-coding-agent
+  ];
   services.ollama = {
     enable = true;
     acceleration = "cuda";
